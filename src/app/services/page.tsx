@@ -1,6 +1,10 @@
-import SEO from '@/components/SEO';
+'use client';
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import AnimatedBackground from '@/components/AnimatedBackground';
+import { ScrollReveal } from '@/components/ScrollReveal';
+import { motion } from 'framer-motion';
 
 export default function Services() {
   const services = [
@@ -19,6 +23,11 @@ export default function Services() {
         "Stratégies de déploiement (blue-green, canary, rolling updates)",
         "Gestion des artefacts et des versions",
         "Intégration de contrôles qualité automatisés"
+      ],
+      benefits: [
+        { label: "Rapidité", value: "Déploiements jusqu'à 10x plus rapides" },
+        { label: "Fiabilité", value: "Réduction drastique des erreurs humaines" },
+        { label: "Qualité", value: "Tests automatisés à chaque étape" }
       ]
     },
     {
@@ -36,6 +45,11 @@ export default function Services() {
         "Gestion des ressources et auto-scaling",
         "Mise en place de registries privés et sécurisés",
         "Optimisation des coûts cloud"
+      ],
+      benefits: [
+        { label: "Scalabilité", value: "Infrastructure qui grandit avec vos besoins" },
+        { label: "Coûts optimisés", value: "Pay-as-you-use, auto-scaling" },
+        { label: "Haute disponibilité", value: "99.9% d'uptime garanti" }
       ]
     },
     {
@@ -53,6 +67,11 @@ export default function Services() {
         "Alerting intelligent et escalade",
         "Dashboards temps réel personnalisés",
         "Distributed tracing pour microservices"
+      ],
+      benefits: [
+        { label: "Proactivité", value: "Détection des problèmes avant les utilisateurs" },
+        { label: "Performance", value: "Optimisation continue basée sur les données" },
+        { label: "MTTR réduit", value: "Résolution plus rapide des incidents" }
       ]
     },
     {
@@ -70,155 +89,182 @@ export default function Services() {
         "Gestion des secrets (Vault, K8s secrets)",
         "Audit et conformité (SOC2, ISO27001)",
         "Backup et disaster recovery"
+      ],
+      benefits: [
+        { label: "Sécurité by design", value: "Intégrée dès la conception" },
+        { label: "Conformité", value: "Respect des standards industriels" },
+        { label: "Audit trail", value: "Traçabilité complète des actions" }
       ]
     }
   ];
 
+  const methodology = [
+    { step: 1, title: "Audit", desc: "Analyse approfondie de l'existant et identification des points d'amélioration" },
+    { step: 2, title: "Stratégie", desc: "Définition d'une roadmap personnalisée adaptée à vos objectifs" },
+    { step: 3, title: "Implémentation", desc: "Mise en œuvre progressive avec validation à chaque étape" },
+    { step: 4, title: "Accompagnement", desc: "Formation des équipes et support continu pour l'autonomie" }
+  ];
+
   return (
     <>
-      <SEO 
-        title="Services DevOps - CI/CD, Cloud, Kubernetes"
-        description="Découvrez nos services DevOps complets : CI/CD, automatisation, cloud GCP, Kubernetes, observabilité et sécurité. Solutions personnalisées pour votre infrastructure."
-        canonical="/services"
-      />
       <Navigation />
-      
-      <main className="min-h-screen">
+
+      <main className="min-h-screen bg-slate-950">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Services <span className="text-blue-400">DevOps</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-              Des solutions complètes pour moderniser, automatiser et sécuriser vos infrastructures
-            </p>
+        <section className="relative py-32 pt-40 overflow-hidden">
+          <AnimatedBackground showScanLine />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <ScrollReveal width="100%">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl md:text-6xl font-bold mb-6 text-white"
+              >
+                Services <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">DevOps</span>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto"
+              >
+                Des solutions complètes pour moderniser, automatiser et sécuriser vos infrastructures
+              </motion.p>
+            </ScrollReveal>
           </div>
         </section>
 
         {/* Services détaillés */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-20">
+        <section className="py-20 relative">
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="space-y-32">
               {services.map((service, index) => (
-                <div key={service.title} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
-                  <div className="flex-1">
-                    <div className="flex items-center mb-6">
-                      <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mr-4 text-blue-600">
-                        {service.icon}
+                <ScrollReveal key={service.title} width="100%" overflow="visible">
+                  <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
+                    <div className="flex-1">
+                      <div className="flex items-center mb-6">
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          className="w-20 h-20 bg-slate-800 rounded-2xl flex items-center justify-center mr-4 text-blue-400 border border-slate-700"
+                        >
+                          {service.icon}
+                        </motion.div>
+                        <h2 className="text-3xl font-bold text-white">{service.title}</h2>
                       </div>
-                      <h2 className="text-3xl font-bold text-gray-900">{service.title}</h2>
+                      <p className="text-xl text-gray-400 mb-6">{service.description}</p>
+                      <ul className="space-y-3">
+                        {service.details.map((detail, detailIndex) => (
+                          <motion.li
+                            key={detailIndex}
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: detailIndex * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            <svg className="w-6 h-6 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span className="text-gray-300">{detail}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
                     </div>
-                    <p className="text-xl text-gray-600 mb-6">{service.description}</p>
-                    <ul className="space-y-3">
-                      {service.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-start">
-                          <svg className="w-6 h-6 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span className="text-gray-700">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex-1">
-                    <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
-                      <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                        Pourquoi choisir notre approche ?
-                      </h3>
-                      <div className="space-y-4 text-gray-700">
-                        {index === 0 && (
-                          <>
-                            <p>• <strong>Rapidité :</strong> Déploiements jusqu'à 10x plus rapides</p>
-                            <p>• <strong>Fiabilité :</strong> Réduction drastique des erreurs humaines</p>
-                            <p>• <strong>Qualité :</strong> Tests automatisés à chaque étape</p>
-                          </>
-                        )}
-                        {index === 1 && (
-                          <>
-                            <p>• <strong>Scalabilité :</strong> Infrastructure qui grandit avec vos besoins</p>
-                            <p>• <strong>Coûts optimisés :</strong> Pay-as-you-use, auto-scaling</p>
-                            <p>• <strong>Haute disponibilité :</strong> 99.9% d'uptime garanti</p>
-                          </>
-                        )}
-                        {index === 2 && (
-                          <>
-                            <p>• <strong>Proactivité :</strong> Détection des problèmes avant les utilisateurs</p>
-                            <p>• <strong>Performance :</strong> Optimisation continue basée sur les données</p>
-                            <p>• <strong>MTTR réduit :</strong> Résolution plus rapide des incidents</p>
-                          </>
-                        )}
-                        {index === 3 && (
-                          <>
-                            <p>• <strong>Sécurité by design :</strong> Intégrée dès la conception</p>
-                            <p>• <strong>Conformité :</strong> Respect des standards industriels</p>
-                            <p>• <strong>Audit trail :</strong> Traçabilité complète des actions</p>
-                          </>
-                        )}
-                      </div>
+                    <div className="flex-1 w-full">
+                      <motion.div
+                        whileHover={{ y: -5 }}
+                        className="bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-blue-500/50 transition-colors"
+                      >
+                        <h3 className="text-2xl font-semibold text-white mb-6">
+                          Pourquoi choisir notre approche ?
+                        </h3>
+                        <div className="space-y-4">
+                          {service.benefits.map((benefit, i) => (
+                            <div key={i} className="flex items-start">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3" />
+                              <div>
+                                <span className="text-white font-medium">{benefit.label} :</span>
+                                <span className="text-gray-400 ml-2">{benefit.value}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
                     </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
 
         {/* Méthodologie */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Notre méthodologie
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Une approche structurée pour garantir le succès de votre transformation DevOps
-              </p>
-            </div>
-            
+        <section className="py-20 relative overflow-hidden">
+          <AnimatedBackground showNodes={false} showScanLine={false} />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <ScrollReveal width="100%">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                  Notre méthodologie
+                </h2>
+                <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                  Une approche structurée pour garantir le succès de votre transformation DevOps
+                </p>
+              </div>
+            </ScrollReveal>
+
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Audit</h3>
-                <p className="text-gray-600">Analyse approfondie de l'existant et identification des points d'amélioration</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Stratégie</h3>
-                <p className="text-gray-600">Définition d'une roadmap personnalisée adaptée à vos objectifs</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Implémentation</h3>
-                <p className="text-gray-600">Mise en œuvre progressive avec validation à chaque étape</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">4</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Accompagnement</h3>
-                <p className="text-gray-600">Formation des équipes et support continu pour l'autonomie</p>
-              </div>
+              {methodology.map((item, index) => (
+                <ScrollReveal key={item.step} delay={index * 0.15} width="100%" overflow="visible">
+                  <motion.div
+                    whileHover={{ y: -10 }}
+                    className="text-center"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-blue-500/25"
+                    >
+                      {item.step}
+                    </motion.div>
+                    <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
+                    <p className="text-gray-400">{item.desc}</p>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-slate-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Discutons de votre projet
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Chaque infrastructure est unique. Contactez-moi pour une analyse personnalisée et un devis adapté à vos besoins.
-            </p>
-            <a
-              href="mailto:villers@ghotatechsolutions.com"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center"
-            >
-              Demander un audit gratuit
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-indigo-600/20" />
+          <AnimatedBackground showGrid={false} showNodes={false} />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <ScrollReveal width="100%">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                Discutons de votre projet
+              </h2>
+              <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                Chaque infrastructure est unique. Contactez-moi pour une analyse personnalisée et un devis adapté à vos besoins.
+              </p>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="mailto:contact@ghotatechsolutions.com"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-full text-lg font-semibold transition-colors inline-flex items-center hover:shadow-lg hover:shadow-blue-500/25"
+              >
+                Demander un audit gratuit
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.a>
+            </ScrollReveal>
           </div>
         </section>
       </main>

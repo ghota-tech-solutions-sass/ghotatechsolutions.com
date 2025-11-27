@@ -27,13 +27,20 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled ? 'glass shadow-lg' : 'bg-transparent'
-        } py-4`}
+      className="fixed top-0 left-0 right-0 z-50 py-4"
+      style={{
+        background: isScrolled ? 'rgba(15, 23, 42, 0.8)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
+        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid transparent',
+        boxShadow: isScrolled ? '0 10px 15px -3px rgba(0, 0, 0, 0.1)' : 'none',
+        transition: 'background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease',
+      }}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 group">
+            <Link href="/" className="flex-shrink-0 group" aria-label="Ghota Tech Solutions - Accueil">
               <span className="text-2xl font-bold text-white transition-transform duration-300 group-hover:scale-105 inline-block">
                 <span className="text-blue-400">GTS</span>
               </span>
@@ -56,6 +63,7 @@ export default function Navigation() {
               whileTap={{ scale: 0.95 }}
               href="mailto:contact@ghotatechsolutions.com"
               className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors hover:shadow-lg hover:shadow-blue-500/25"
+              aria-label="Envoyer un email de contact"
             >
               Contact
             </motion.a>
@@ -66,8 +74,11 @@ export default function Navigation() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-300 hover:text-white focus:outline-none p-2 rounded-md hover:bg-white/10 transition-colors"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">{isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}</span>
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -83,6 +94,7 @@ export default function Navigation() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              id="mobile-menu"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}

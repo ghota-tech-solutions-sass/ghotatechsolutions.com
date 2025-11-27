@@ -24,9 +24,9 @@
   /* Border Colors */
   --border: #e2e8f0; /* Slate 200 */
   
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  /* Glassmorphism - Always dark for this site */
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {

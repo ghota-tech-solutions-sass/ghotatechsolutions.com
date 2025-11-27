@@ -1,15 +1,9 @@
-import SEO from '@/components/SEO';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export default function PolitiqueConfidentialite() {
   return (
     <>
-      <SEO
-        title="Politique de confidentialité"
-        description="Politique de confidentialité de Ghota Tech Solutions - Protection de vos données personnelles et respect de votre vie privée."
-        canonical="/politique-confidentialite"
-      />
       <Navigation />
 
       <main className="min-h-screen bg-slate-950 py-20 relative overflow-hidden">
@@ -26,7 +20,7 @@ export default function PolitiqueConfidentialite() {
             <div className="prose prose-lg prose-invert max-w-none">
               <div className="bg-blue-500/10 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">
                 <p className="text-blue-200 m-0">
-                  <strong>Dernière mise à jour :</strong> 27 novembre 2025
+                  <strong>Dernière mise à jour :</strong> 28 novembre 2025
                 </p>
                 <p className="text-blue-200 mt-2 m-0">
                   Ghota Tech Solutions s&apos;engage à protéger votre vie privée. Cette politique de confidentialité

@@ -1,15 +1,9 @@
-import SEO from '@/components/SEO';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 export default function MentionsLegales() {
   return (
     <>
-      <SEO
-        title="Mentions légales"
-        description="Mentions légales de Ghota Tech Solutions - Informations juridiques et légales de la société."
-        canonical="/mentions-legales"
-      />
       <Navigation />
 
       <main className="min-h-screen bg-slate-950 py-20 relative overflow-hidden">
@@ -52,9 +46,11 @@ export default function MentionsLegales() {
                 </p>
                 <div className="bg-slate-900/50 p-6 rounded-lg border border-white/5">
                   <p className="text-gray-400">
-                    [Nom de l&apos;hébergeur]<br />
-                    [Adresse de l&apos;hébergeur]<br />
-                    [Téléphone de l&apos;hébergeur]
+                    <strong className="text-white">Google Cloud Platform (Cloud Run)</strong><br />
+                    Google Ireland Limited<br />
+                    Gordon House, Barrow Street<br />
+                    Dublin 4, Irlande<br /><br />
+                    <span className="text-sm">Région d&apos;hébergement : Europe West 1 (Belgique)</span>
                   </p>
                 </div>
               </section>
@@ -103,18 +99,23 @@ export default function MentionsLegales() {
                 <h2 className="text-2xl font-semibold text-white mb-4">Collecte d&apos;informations</h2>
                 <p className="mb-4 text-gray-400">
                   En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978,
-                  la loi n° 2004-801 du 6 août 2004, l&apos;article L. 226-13 du Code pénal et la Directive Européenne du
-                  24 octobre 1995.
+                  la loi n° 2004-801 du 6 août 2004, l&apos;article L. 226-13 du Code pénal, le Règlement Général sur la
+                  Protection des Données (RGPD) et la Directive Européenne du 24 octobre 1995.
                 </p>
                 <p className="mb-4 text-gray-400">
-                  A l&apos;occasion de l&apos;utilisation du site ghotatechsolutions.com, peuvent êtres recueillies : l&apos;URL des
-                  liens par l&apos;intermédiaire desquels l&apos;utilisateur a accédé au site, le fournisseur d&apos;accès de
-                  l&apos;utilisateur, l&apos;adresse de protocole Internet (IP) de l&apos;utilisateur.
+                  Ce site ne dispose pas de base de données et ne stocke aucune information personnelle sur ses serveurs.
+                  Le seul moyen de nous contacter est par email.
                 </p>
                 <p className="mb-4 text-gray-400">
-                  En tout état de cause, Ghota Tech Solutions ne collecte des informations personnelles relatives à
-                  l&apos;utilisateur que pour le besoin de certains services proposés par le site. L&apos;utilisateur fournit ces
-                  informations en toute connaissance de cause, notamment lorsqu&apos;il procède par lui-même à leur saisie.
+                  Si vous acceptez les cookies, des données de navigation anonymisées peuvent être collectées via
+                  Google Analytics (pages visitées, durée de visite, source de trafic). Ces données sont utilisées
+                  uniquement à des fins statistiques pour améliorer le site.
+                </p>
+                <p className="mb-4 text-gray-400">
+                  Pour plus d&apos;informations sur la collecte et le traitement de vos données, consultez notre{' '}
+                  <a href="/politique-confidentialite" className="text-blue-400 hover:text-blue-300 transition-colors">
+                    politique de confidentialité
+                  </a>.
                 </p>
               </section>
 
