@@ -1,0 +1,21 @@
+# Robots.txt for ghotatechsolutions.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ghotatechsolutions.com/sitemap.xml
+
+# Disallow admin or private pages (if any in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all major crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
