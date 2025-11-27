@@ -42,14 +42,49 @@ export const metadata: Metadata = {
   },
 };
 
+import { GoogleTagManager } from '@next/third-parties/google'
+import CookieConsent from '@/components/CookieConsent';
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+
+              // Définir le consentement par défaut à "denied" AVANT le chargement de GTM
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+              });
+
+              // Restaurer le consentement si déjà accepté
+              const savedConsent = localStorage.getItem('cookie_consent');
+              if (savedConsent === 'granted') {
+                gtag('consent', 'update', {
+                  'analytics_storage': 'granted',
+                  'ad_storage': 'granted',
+                  'ad_user_data': 'granted',
+                  'ad_personalization': 'granted'
+                });
+              }
+            `,
+          }}
+        />
+      </head>
+      <body className={`${inter.className} bg-background text-foreground antialiased`}>
+        <GoogleTagManager gtmId="GTM-K22W23KR" />
+        <CookieConsent />
         {children}
       </body>
     </html>
