@@ -163,8 +163,8 @@ export default function Home() {
                   background: i % 3 === 0
                     ? 'rgba(59, 130, 246, 0.08)'
                     : i % 3 === 1
-                    ? 'rgba(139, 92, 246, 0.08)'
-                    : 'rgba(16, 185, 129, 0.06)',
+                      ? 'rgba(139, 92, 246, 0.08)'
+                      : 'rgba(16, 185, 129, 0.06)',
                 }}
                 animate={{
                   y: [0, el.y],
