@@ -343,6 +343,7 @@ export default function Home() {
                 {[
                   { name: "HomeServe", color: "#e11d48" },
                   { name: "Bedrock (M6)", color: "#3b82f6" },
+                  { name: "G&T EQUITY", color: "#22c55e" },
                   { name: "Les Mini Mondes", color: "#10b981" },
                   { name: "Journal du Coin", color: "#f59e0b" },
                   { name: "Festa Universal", color: "#a855f7" },
