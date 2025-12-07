@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     siteName: 'Ghota Tech Solutions',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Ghota Tech Solutions - Expert DevOps',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ghota Tech Solutions | Expert DevOps & Cloud',
     description: 'Expert DevOps freelance à Lyon. CI/CD, Kubernetes, GCP, Terraform.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -76,9 +76,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'votre-code-verification-google',
   },
   category: 'technology',
 };
@@ -132,7 +129,7 @@ const jsonLd = {
       name: 'Ghota Tech Solutions',
       description: 'Expert DevOps freelance à Lyon. +9 ans d\'expérience en CI/CD, Kubernetes, GCP, Terraform.',
       url: 'https://ghotatechsolutions.com',
-      telephone: '',
+      telephone: '+33 6 37 83 58 81',
       email: 'contact@ghotatechsolutions.com',
       address: {
         '@type': 'PostalAddress',

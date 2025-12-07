@@ -30,11 +30,12 @@ export default function MentionsLegales() {
                   <h3 className="text-xl font-semibold text-white mb-3">Éditeur du site</h3>
                   <ul className="space-y-2 text-gray-400">
                     <li><strong className="text-white">Dénomination sociale :</strong> Ghota Tech Solutions (GTS)</li>
-                    <li><strong className="text-white">Forme juridique :</strong> Société par actions simplifiée unipersonnelle (SASU)</li>
-                    <li><strong className="text-white">SIREN :</strong> 988597209</li>
+                    <li><strong className="text-white">Forme juridique :</strong> Entreprise unipersonnelle à responsabilité limitée (EURL)</li>
+                    <li><strong className="text-white">SIREN :</strong> 988 597 209</li>
+                    <li><strong className="text-white">SIRET :</strong> 988 597 209 00010</li>
                     <li><strong className="text-white">Siège social :</strong> 268 RUE PAUL BERT 69003 LYON</li>
                     <li><strong className="text-white">Email :</strong> contact@ghotatechsolutions.com</li>
-                    <li><strong className="text-white">Représentant légal :</strong> Mickaël Villers (Président)</li>
+                    <li><strong className="text-white">Représentant légal :</strong> Mickaël Villers (Gérant)</li>
                   </ul>
                 </div>
               </section>
