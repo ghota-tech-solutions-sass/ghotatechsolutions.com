@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 text-gray-400 border-t border-slate-800" role="contentinfo" aria-label="Pied de page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           {/* Company info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-6">
@@ -39,6 +39,28 @@ export default function Footer() {
                 <Link href="/a-propos" className="hover:text-blue-400 transition-colors">
                   À propos
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-6">Nos Produits</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="https://lettrio.app" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                  Lettrio &mdash; Courriers officiels par IA
+                </a>
+              </li>
+              <li>
+                <a href="https://outilis.fr" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                  Outilis.fr &mdash; Outils en ligne gratuits
+                </a>
+              </li>
+              <li>
+                <a href="https://roastmypic.ai" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                  RoastMyPic &mdash; Roast de photos par IA
+                </a>
               </li>
             </ul>
           </div>
