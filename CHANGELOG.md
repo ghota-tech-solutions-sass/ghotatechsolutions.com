@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/ghota-tech-solutions-sass/ghotatechsolutions.com/compare/v0.2.0...v0.3.0) (2026-05-22)
+
+
+### Features
+
+* add AI deployment expertise (LLM self-hosted, local & cloud) ([#9](https://github.com/ghota-tech-solutions-sass/ghotatechsolutions.com/issues/9)) ([2eff6a5](https://github.com/ghota-tech-solutions-sass/ghotatechsolutions.com/commit/2eff6a5e93583fa40527aafb83a4d8f7bef05705))
+
 ## [0.2.0](https://github.com/ghota-tech-solutions-sass/ghotatechsolutions.com/compare/v0.1.0...v0.2.0) (2026-05-22)
 
 
