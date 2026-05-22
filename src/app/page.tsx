@@ -202,7 +202,7 @@ export default function Home() {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-white">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 inline-block">
-                  Ghota Tech Solutions
+                  Expert DevOps &amp; Cloud freelance à Lyon
                 </span>
               </h1>
               <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
