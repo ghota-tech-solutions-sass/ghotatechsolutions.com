@@ -53,6 +53,28 @@ export default function Services() {
       ]
     },
     {
+      title: "Déploiement d'IA — Local & Cloud",
+      description: "Mise en production de modèles IA et LLM, en self-hosted ou sur le cloud",
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+        </svg>
+      ),
+      details: [
+        "Déploiement de LLM open-source self-hosted (Llama, Mistral, vLLM, Ollama)",
+        "Inférence IA sur GPU — on-premise ou cloud (Vertex AI, Cloud Run GPU)",
+        "Orchestration de workloads IA sur Kubernetes avec scheduling GPU",
+        "Pipelines MLOps : versioning de modèles, CI/CD d'inférence, suivi du drift",
+        "Optimisation des coûts d'inférence (quantization, batching, auto-scaling)",
+        "Intégration d'IA et de RAG dans vos applications existantes"
+      ],
+      benefits: [
+        { label: "Souveraineté", value: "Déploiement local : vos données ne sortent pas" },
+        { label: "Coûts maîtrisés", value: "Inférence optimisée, sans surfacturation d'API" },
+        { label: "Du POC à la prod", value: "Même pipeline en local et dans le cloud" }
+      ]
+    },
+    {
       title: "Observabilité & Monitoring",
       description: "Mise en place de métriques, alerting, dashboards",
       icon: (

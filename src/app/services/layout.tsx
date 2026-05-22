@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Services DevOps - CI/CD, Kubernetes, Cloud, Terraform',
-  description: 'Découvrez nos services DevOps : CI/CD avec GitHub Actions et GitLab, Kubernetes, migration cloud GCP, Infrastructure as Code avec Terraform, monitoring et observabilité. Expert DevOps à Lyon.',
+  description: "Services DevOps : CI/CD, Kubernetes, migration cloud GCP, Infrastructure as Code Terraform, monitoring, et déploiement d'IA et de LLM en local ou cloud. Expert DevOps & IA à Lyon.",
   keywords: [
     'Services DevOps',
     'CI/CD pipeline',
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     'Infrastructure as Code',
     'Monitoring DevOps',
     'Automatisation déploiement',
+    'Déploiement IA',
+    'Déploiement LLM',
+    'MLOps',
+    'Infrastructure IA',
+    'IA self-hosted',
     'DevOps Lyon',
   ],
   alternates: {
