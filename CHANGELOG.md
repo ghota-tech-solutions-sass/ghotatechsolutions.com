@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/ghota-tech-solutions-sass/ghotatechsolutions.com/compare/v0.3.0...v0.3.1) (2026-06-26)
+
+
+### Bug Fixes
+
+* support latest lint toolchain ([6b7ffdb](https://github.com/ghota-tech-solutions-sass/ghotatechsolutions.com/commit/6b7ffdbb5f2198356c3f430994ccc048dc21444b))
+
 ## [0.3.0](https://github.com/ghota-tech-solutions-sass/ghotatechsolutions.com/compare/v0.2.0...v0.3.0) (2026-05-22)
 
 
