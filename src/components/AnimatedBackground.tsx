@@ -1,10 +1,9 @@
 'use client';
 
+import { floatingElements } from '@/lib/floating-elements';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 interface AnimatedBackgroundProps {
-  variant?: 'hero' | 'section';
   showGrid?: boolean;
   showNodes?: boolean;
   showOrbs?: boolean;
@@ -13,35 +12,12 @@ interface AnimatedBackgroundProps {
 }
 
 export default function AnimatedBackground({
-  variant = 'section',
   showGrid = true,
   showNodes = true,
   showOrbs = true,
   showGradient = true,
   showScanLine = false,
 }: AnimatedBackgroundProps) {
-  const [floatingElements, setFloatingElements] = useState<Array<{
-    width: number;
-    height: number;
-    left: string;
-    top: string;
-    duration: number;
-    y: number;
-    x: number;
-  }>>([]);
-
-  useEffect(() => {
-    setFloatingElements([...Array(5)].map(() => ({
-      width: Math.random() * 300 + 100,
-      height: Math.random() * 300 + 100,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      duration: Math.random() * 10 + 10,
-      y: Math.random() * 100 - 50,
-      x: Math.random() * 100 - 50,
-    })));
-  }, []);
-
   return (
     <>
       {/* Animated Grid Background */}

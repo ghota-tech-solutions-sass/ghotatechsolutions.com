@@ -3,32 +3,10 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { floatingElements } from '@/lib/floating-elements';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [floatingElements, setFloatingElements] = useState<Array<{
-    width: number;
-    height: number;
-    left: string;
-    top: string;
-    duration: number;
-    y: number;
-    x: number;
-  }>>([]);
-
-  useEffect(() => {
-    setFloatingElements([...Array(5)].map(() => ({
-      width: Math.random() * 300 + 100,
-      height: Math.random() * 300 + 100,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      duration: Math.random() * 10 + 10,
-      y: Math.random() * 100 - 50,
-      x: Math.random() * 100 - 50,
-    })));
-  }, []);
-
   return (
     <>
       <Navigation />

@@ -1,26 +1,73 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function CookieConsent() {
-    const [showBanner, setShowBanner] = useState(false);
+type ConsentValue = 'granted' | 'denied';
+type ConsentSnapshot = ConsentValue | null | 'pending';
+type GoogleConsentUpdate = Record<
+    'analytics_storage' | 'ad_storage' | 'ad_user_data' | 'ad_personalization',
+    ConsentValue
+>;
 
-    useEffect(() => {
-        const consent = localStorage.getItem('cookie_consent');
-        if (consent === null) {
-            setShowBanner(true);
+const COOKIE_CONSENT_KEY = 'cookie_consent';
+const COOKIE_CONSENT_CHANGE_EVENT = 'cookie_consent_change';
+
+declare global {
+    interface Window {
+        gtag?: (command: 'consent', action: 'update', params: GoogleConsentUpdate) => void;
+    }
+}
+
+function getCookieConsentSnapshot(): ConsentSnapshot {
+    if (typeof window === 'undefined') {
+        return 'pending';
+    }
+
+    return localStorage.getItem(COOKIE_CONSENT_KEY) as ConsentValue | null;
+}
+
+function getServerCookieConsentSnapshot(): ConsentSnapshot {
+    return 'pending';
+}
+
+function subscribeToCookieConsent(onStoreChange: () => void) {
+    if (typeof window === 'undefined') {
+        return () => {};
+    }
+
+    const handleStorage = (event: StorageEvent) => {
+        if (event.key === COOKIE_CONSENT_KEY) {
+            onStoreChange();
         }
-    }, []);
+    };
+    const handleCookieConsentChange = () => onStoreChange();
+
+    window.addEventListener('storage', handleStorage);
+    window.addEventListener(COOKIE_CONSENT_CHANGE_EVENT, handleCookieConsentChange);
+
+    return () => {
+        window.removeEventListener('storage', handleStorage);
+        window.removeEventListener(COOKIE_CONSENT_CHANGE_EVENT, handleCookieConsentChange);
+    };
+}
+
+export default function CookieConsent() {
+    const consent = useSyncExternalStore(
+        subscribeToCookieConsent,
+        getCookieConsentSnapshot,
+        getServerCookieConsentSnapshot
+    );
+    const showBanner = consent === null;
 
     const updateConsent = (granted: boolean) => {
         const newValue = granted ? 'granted' : 'denied';
-        localStorage.setItem('cookie_consent', newValue);
-        setShowBanner(false);
+        localStorage.setItem(COOKIE_CONSENT_KEY, newValue);
+        window.dispatchEvent(new Event(COOKIE_CONSENT_CHANGE_EVENT));
 
         // Update Google Consent Mode via gtag
-        if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-            (window as any).gtag('consent', 'update', {
+        if (typeof window.gtag === 'function') {
+            window.gtag('consent', 'update', {
                 'analytics_storage': newValue,
                 'ad_storage': newValue,
                 'ad_user_data': newValue,
@@ -45,7 +92,7 @@ export default function CookieConsent() {
                                 <h3 className="text-lg font-semibold text-white mb-2">Nous respectons votre vie privée</h3>
                                 <p className="text-gray-300 text-sm leading-relaxed">
                                     Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic.
-                                    En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                                    En cliquant sur &quot;Accepter&quot;, vous consentez à notre utilisation des cookies.
                                     Consultez notre <a href="/politique-confidentialite" className="text-blue-400 hover:text-blue-300 underline">politique de confidentialité</a> pour en savoir plus.
                                 </p>
                             </div>
