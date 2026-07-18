@@ -12,7 +12,7 @@ export default function RiftDiceSupport() {
     <RiftDicePageShell
       eyebrow="Assistance officielle • Official support"
       title="Support Rift Dice"
-      description="Aide pour le compte, les achats, la connexion et le fonctionnement du jeu. Help with your account, purchases, connectivity and gameplay."
+      description="Aide pour le compte, la progression, la connexion et le fonctionnement du jeu. Help with your account, progression, connectivity and gameplay."
     >
       <section>
         <h2 className="mb-3 text-2xl font-bold text-white">Nous contacter / Contact us</h2>
@@ -42,16 +42,26 @@ export default function RiftDiceSupport() {
         </p>
       </section>
 
-      <section>
-        <h2 className="mb-3 text-2xl font-bold text-white">Achats / Purchases</h2>
+      <section className="rounded-2xl border border-emerald-300/20 bg-emerald-300/5 p-5">
+        <h2 className="mb-3 text-2xl font-bold text-white">Version 0.4 earned-only</h2>
         <p>
-          Pour restaurer un achat éligible, ouvrez la Boutique puis utilisez « Restaurer les achats ».
-          Pour un achat facturé mais absent, joignez uniquement la référence de commande masquée et la date.
+          La version de lancement ne propose ni achat intégré, ni publicité, ni pass premium.
+          Les coffres, cartes et monnaies sont gagnés uniquement en jouant.
         </p>
         <p className="mt-3">
-          To restore an eligible purchase, open the Shop and select “Restore purchases”. If a charged
-          purchase is missing, provide only a masked order reference and the purchase date.
+          Launch version 0.4 has no in-app purchases, advertising or premium pass.
+          Chests, cards and currencies are earned only through play.
         </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-2xl font-bold text-white">Dépannage / Troubleshooting</h2>
+        <ul className="list-disc space-y-2 pl-6">
+          <li>Après une coupure réseau, laissez l’écran de reconnexion restaurer l’état autoritaire de la partie.</li>
+          <li>Si une récompense n’apparaît pas, relancez l’application avant de rejouer la même action.</li>
+          <li>Pour un problème de lisibilité, activez grand texte, contraste élevé ou mouvements réduits dans les paramètres.</li>
+          <li>After a network interruption, allow the reconnect screen to restore the authoritative match state.</li>
+        </ul>
       </section>
 
       <section>
@@ -68,4 +78,3 @@ export default function RiftDiceSupport() {
     </RiftDicePageShell>
   );
 }
-

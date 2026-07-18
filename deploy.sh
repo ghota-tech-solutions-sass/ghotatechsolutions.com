@@ -1,30 +1,29 @@
-#!/bin/bash
+#!/bin/sh
+set -eu
 
-# Exit on error
-set -e
+ROOT="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+cd "$ROOT"
 
-# Configuration
-PROJECT_ID="ghota-tech-solutions"
-REGION="europe-west1"
-SERVICE_NAME="ghotatechsolutions-website"
-DOMAIN="ghotatechsolutions.com"
-echo "🚀 Starting deployment for $SERVICE_NAME..."
+command -v bun >/dev/null 2>&1 || { echo "Bun is required." >&2; exit 2; }
+command -v gh >/dev/null 2>&1 || { echo "GitHub CLI is required." >&2; exit 2; }
 
+BRANCH="$(git branch --show-current)"
+[ -n "$BRANCH" ] || { echo "Deploy from a named branch." >&2; exit 2; }
+[ -z "$(git status --porcelain --untracked-files=no)" ] || {
+  echo "Commit tracked website changes before deployment." >&2
+  exit 1
+}
 
-# Deploy to Cloud Run using source deployment
-# This will automatically build the Docker image and deploy
-echo "🚀 Deploying to Cloud Run..."
-gcloud run deploy $SERVICE_NAME \
-  --source . \
-  --platform managed \
-  --region $REGION \
-  --project $PROJECT_ID \
-  --allow-unauthenticated
+bun install --frozen-lockfile
+bun run lint
+bun run build
 
-echo ""
-echo "✅ Deployment complete!"
-echo ""
-echo "🌐 To map the custom domain $DOMAIN:"
-echo "   1. Verify domain ownership in Google Search Console"
-echo "   2. Run: gcloud beta run domain-mappings create --service $SERVICE_NAME --domain $DOMAIN --region $REGION --project $PROJECT_ID"
-echo ""
+git fetch origin "$BRANCH"
+[ "$(git rev-parse HEAD)" = "$(git rev-parse "origin/$BRANCH")" ] || {
+  echo "Push the exact reviewed commit before deployment." >&2
+  exit 1
+}
+
+gh workflow run deploy.yml --ref "$BRANCH"
+echo "GitHub Pages deployment requested for $BRANCH."
+echo "Follow it with: gh run watch --exit-status"

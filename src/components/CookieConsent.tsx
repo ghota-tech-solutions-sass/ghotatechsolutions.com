@@ -99,13 +99,13 @@ export default function CookieConsent() {
                             <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
                                 <button
                                     onClick={() => updateConsent(false)}
-                                    className="px-6 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors border border-white/10"
+                                    className="min-h-11 px-6 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors border border-white/10"
                                 >
                                     Refuser
                                 </button>
                                 <button
                                     onClick={() => updateConsent(true)}
-                                    className="px-6 py-2.5 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-lg shadow-blue-500/25"
+                                    className="min-h-11 px-6 py-2.5 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-lg shadow-blue-500/25"
                                 >
                                     Accepter
                                 </button>
