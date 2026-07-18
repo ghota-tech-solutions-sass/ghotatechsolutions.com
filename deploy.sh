@@ -17,6 +17,7 @@ BRANCH="$(git branch --show-current)"
 bun install --frozen-lockfile
 bun run lint
 bun run build
+bun run validate:export
 
 git fetch origin "$BRANCH"
 [ "$(git rev-parse HEAD)" = "$(git rev-parse "origin/$BRANCH")" ] || {

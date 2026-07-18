@@ -15,10 +15,13 @@ Production verification:
 ```bash
 bun run lint
 bun run build
+bun run validate:export
 ```
 
-The build must contain the static Rift Dice landing, support, privacy and account
-deletion routes plus `robots.txt` and `sitemap.xml`.
+The build must contain directory-indexed Rift Dice landing, support, privacy and
+account deletion routes plus `robots.txt`, `sitemap.xml` and `CNAME`. The export
+validator deliberately rejects `.html`-only routes that GitHub Pages would answer
+with its 404 fallback.
 
 ## Deployment
 
