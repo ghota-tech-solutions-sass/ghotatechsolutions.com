@@ -64,12 +64,11 @@ export default function RiftDiceDeleteAccount() {
       <section className="rounded-2xl border border-amber-400/20 bg-amber-400/5 p-5">
         <h2 className="mb-2 text-xl font-bold text-amber-100">Attention / Important</h2>
         <p>
-          La suppression est définitive après le délai de grâce : les achats consommables, la progression et
+          La suppression est définitive après le délai de grâce : la progression, la collection, les decks et
           les objets virtuels ne pourront pas être récupérés. Deleting the account is permanent after the grace
-          period and consumed purchases, progress and virtual items cannot be recovered.
+          period; progression, collection, decks and virtual items cannot be recovered.
         </p>
       </section>
     </RiftDicePageShell>
   );
 }
-

@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ghota Tech Solutions
 
-## Getting Started
+Static Next.js website for `https://ghotatechsolutions.com`, exported to `out/`
+and hosted by GitHub Pages. The custom domain is preserved by `public/CNAME`.
 
-First, run the development server:
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production verification:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run lint
+bun run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The build must contain the static Rift Dice landing, support, privacy and account
+deletion routes plus `robots.txt` and `sitemap.xml`.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Deployment is handled only by `.github/workflows/deploy.yml`. A pull request runs
+the build check without publishing. A version tag or an explicit workflow dispatch
+publishes the exact `out/` artifact to GitHub Pages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+From a clean branch whose reviewed commit is already pushed:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+./deploy.sh
+gh run watch --exit-status
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Do not use the historical Cloud Run source deployment: this project uses
+`output: "export"` and GitHub Pages is the production host.

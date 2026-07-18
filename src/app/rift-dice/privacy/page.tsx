@@ -10,9 +10,8 @@ export const metadata: Metadata = {
 const collectedData = [
   ["Compte et profil", "Identifiant joueur, nom d’affichage, paramètres et, uniquement si vous choisissez de lier le compte, adresse e-mail ou identifiant de connexion de plateforme."],
   ["Progression", "Collection de dés, decks, monnaies virtuelles, quêtes, classement, historique de parties, amis et récompenses."],
-  ["Achats", "Produit, plateforme, état de transaction, historique de restauration ou remboursement et preuves techniques hachées. Ghota Tech Solutions ne reçoit pas votre numéro de carte bancaire."],
-  ["Utilisation et diagnostic", "Interactions de jeu si vous acceptez les analytics, version de l’application, plateforme, erreurs et données techniques nécessaires à la stabilité et à la lutte contre la fraude."],
-  ["Publicité récompensée", "AdMob peut traiter des informations techniques et publicitaires selon votre région, vos choix de consentement et la configuration de l’app. Rift Dice ne vend pas vos données personnelles."],
+  ["Utilisation facultative", "Interactions de jeu limitées et événements de progression uniquement si vous acceptez les analytics. La file locale est effacée au retrait du consentement."],
+  ["Diagnostic et sécurité", "Version de l’application, plateforme, codes d’erreur, contexte technique limité et métadonnées réseau nécessaires à la stabilité, à la reconnexion et à la prévention des abus."],
 ];
 
 export default function RiftDicePrivacy() {
@@ -35,6 +34,26 @@ export default function RiftDicePrivacy() {
       </section>
 
       <section>
+        <h2 className="mb-3 text-2xl font-bold text-white">Périmètre de la version 0.4</h2>
+        <div className="rounded-2xl border border-emerald-300/20 bg-emerald-300/5 p-5">
+          <p>
+            La version de lancement est earned-only : elle n’intègre ni achat en argent réel,
+            ni publicité, ni suivi publicitaire, ni récompense aléatoire payante. Elle ne collecte
+            donc ni historique d’achat, ni identifiant publicitaire pour ces finalités.
+          </p>
+          <p className="mt-3" lang="en">
+            Launch version 0.4 is earned-only. It contains no real-money purchase,
+            advertising, ad tracking or paid randomized reward, and does not collect
+            purchase history or advertising identifiers for those purposes.
+          </p>
+        </div>
+        <p className="mt-4">
+          Si une version ultérieure active une fonctionnalité commerciale ou publicitaire,
+          cette politique et les déclarations des stores seront mises à jour avant sa publication.
+        </p>
+      </section>
+
+      <section>
         <h2 className="mb-4 text-2xl font-bold text-white">2. Données traitées</h2>
         <div className="space-y-4">
           {collectedData.map(([title, description]) => (
@@ -50,13 +69,13 @@ export default function RiftDicePrivacy() {
         <h2 className="mb-3 text-2xl font-bold text-white">3. Finalités et bases juridiques</h2>
         <ul className="list-disc space-y-2 pl-6">
           <li>Exécuter le service : compte, parties, progression, sauvegarde et support.</li>
-          <li>Sécuriser les parties, vérifier les achats et prévenir les abus.</li>
-          <li>Respecter les obligations légales, remboursements et demandes de droits.</li>
-          <li>Avec votre consentement, mesurer l’utilisation et proposer une publicité récompensée adaptée aux choix autorisés.</li>
+          <li>Sécuriser les parties, restaurer les sessions réseau et prévenir les abus.</li>
+          <li>Respecter les obligations légales et traiter les demandes de droits.</li>
+          <li>Avec votre consentement, mesurer l’utilisation afin d’améliorer l’équilibrage et l’ergonomie.</li>
         </ul>
         <p className="mt-4">
           Les analytics de jeu sont désactivés avant consentement et votre choix peut être modifié dans les
-          paramètres. Le refus des analytics ne bloque pas les fonctionnalités payantes.
+          paramètres. Le refus des analytics ne bloque aucune fonctionnalité du jeu.
         </p>
       </section>
 
@@ -64,8 +83,7 @@ export default function RiftDicePrivacy() {
         <h2 className="mb-3 text-2xl font-bold text-white">4. Prestataires et destinataires</h2>
         <ul className="list-disc space-y-2 pl-6">
           <li>Google Cloud Platform : hébergement sécurisé des services et bases de données.</li>
-          <li>Apple App Store et Google Play : paiement, restauration, remboursement et distribution.</li>
-          <li>Google AdMob : publicités récompensées et gestion du consentement, lorsqu’elles sont disponibles.</li>
+          <li>Apple App Store et Google Play : distribution de l’application et services propres à la plateforme.</li>
         </ul>
         <p className="mt-4">
           Les données peuvent être traitées hors de l’Espace économique européen avec les garanties prévues
@@ -78,8 +96,16 @@ export default function RiftDicePrivacy() {
         <p>
           Les données de compte sont conservées tant que le compte est actif. Une demande de suppression
           déclenche un délai de grâce de sept jours, pendant lequel elle peut être annulée. À son terme, les
-          données associées sont supprimées ou rendues non rattachables, sous réserve des éléments que nous
-          devons conserver pour les obligations légales, les remboursements et la prévention de la fraude.
+          données de profil, progression, parties, relations sociales, analytics et diagnostics liés sont
+          supprimées. Un journal d’exécution minimal et non rattachable au joueur est conservé pour prouver
+          l’achèvement de la demande.
+        </p>
+        <p className="mt-4">
+          Les événements analytics bruts acceptés avec consentement et les rapports d’erreur client sont
+          conservés au maximum 90 jours. La file analytics présente sur l’appareil est limitée à 23 heures
+          et supprimée immédiatement lors du retrait du consentement. Les journaux techniques de sécurité
+          peuvent être conservés jusqu’à 90 jours, sauf nécessité plus longue liée à un incident ou à une
+          obligation légale.
         </p>
         <p className="mt-4">
           Consultez la page{" "}
@@ -113,21 +139,22 @@ export default function RiftDicePrivacy() {
         <div className="space-y-4">
           <p>
             Ghota Tech Solutions processes a player identifier, profile and settings, game progression, decks,
-            virtual balances, match and social history, purchase status, and stability or anti-fraud diagnostics.
+            virtual balances, match and social history, and limited stability or anti-abuse diagnostics.
             An email address is processed only when a player voluntarily links or recovers an account.
           </p>
           <p>
-            Data is used to provide and secure the game, synchronize progress, verify purchases, provide support,
-            meet legal obligations and, with consent, measure product usage or provide rewarded advertising.
-            Service providers include Google Cloud Platform, Apple, Google Play and Google AdMob.
+            Data is used to provide and secure the game, synchronize progress, restore network sessions,
+            provide support, meet legal obligations and, with consent, measure product usage. Raw consented
+            analytics and client error reports are retained for no more than 90 days. Service providers include
+            Google Cloud Platform; Apple and Google Play distribute the application.
           </p>
           <p>
             Game analytics are consent-gated. Account deletion can be initiated in the app or on our{" "}
             <a className="font-semibold text-cyan-300 hover:text-cyan-200" href="/rift-dice/delete-account">
               account deletion page
             </a>
-            . A seven-day cancellation period applies before associated account data is deleted or de-identified,
-            except for records that must be retained for legal, refund or fraud-prevention purposes.
+            . A seven-day cancellation period applies before associated account and gameplay data is deleted.
+            A minimal non-player-linked completion record is retained to audit the deletion.
           </p>
           <p>
             To exercise access, correction, portability, objection or deletion rights, email{" "}
@@ -141,4 +168,3 @@ export default function RiftDicePrivacy() {
     </RiftDicePageShell>
   );
 }
-
