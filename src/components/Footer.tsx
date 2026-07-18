@@ -62,6 +62,11 @@ export default function Footer() {
                   RoastMyPic &mdash; Roast de photos par IA
                 </a>
               </li>
+              <li>
+                <Link href="/rift-dice" className="hover:text-cyan-300 transition-colors">
+                  Rift Dice &mdash; Jeu de stratégie mobile
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -99,6 +104,9 @@ export default function Footer() {
                 </Link>
                 <Link href="/politique-confidentialite" className="block text-sm hover:text-blue-400 transition-colors">
                   Politique de confidentialité
+                </Link>
+                <Link href="/rift-dice/support" className="mt-2 block text-sm hover:text-cyan-300 transition-colors">
+                  Support Rift Dice
                 </Link>
               </li>
             </ul>
