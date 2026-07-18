@@ -37,5 +37,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/rift-dice`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/rift-dice/support`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/rift-dice/privacy`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/rift-dice/delete-account`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
   ];
 }
