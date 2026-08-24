@@ -19,7 +19,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN bun --bun next build
 
 # Production stage
-FROM oven/bun:1.3.14-slim
+FROM oven/bun:1.4.0-slim
 
 WORKDIR /app
 
