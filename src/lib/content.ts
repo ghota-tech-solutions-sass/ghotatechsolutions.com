@@ -66,7 +66,7 @@ export const offers: Offer[] = [
       'Kubernetes (GKE, EKS), Terraform, observabilité',
       'Mission en régie ou au forfait',
     ],
-    proof: 'Chez HomeServe : démarche FinOps qui économise plusieurs milliers d’euros par an sur la facture cloud, et 100+ dépôts migrés de GitLab vers GitHub.',
+    proof: 'Chez HomeServe : démarche FinOps qui économise plusieurs milliers d’euros par mois sur la facture cloud, et 100+ dépôts migrés de GitLab vers GitHub.',
   },
 ];
 
@@ -159,7 +159,7 @@ export const career: Job[] = [
     role: 'Ingénieur DevOps (freelance)',
     company: 'HomeServe France',
     period: 'depuis 2023',
-    text: 'Équipe Platform : CI/CD, infra cloud, FinOps (plusieurs milliers d’euros économisés par an), migration de 100+ dépôts GitLab vers GitHub, Keycloak, sécurité.',
+    text: 'Équipe Platform : CI/CD, infra cloud, FinOps (plusieurs milliers d’euros économisés par mois), migration de 100+ dépôts GitLab vers GitHub, Keycloak, sécurité.',
   },
   {
     role: 'DevOps Engineer',
