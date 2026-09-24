@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SocialLinks from '@/components/SocialLinks';
 
 const navigation = [
   { name: 'Offres', href: '/services' },
@@ -54,9 +55,10 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            <SocialLinks className="ml-3 border-l border-border pl-4" />
             <Link
               href="/#contact"
-              className="ml-3 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:translate-y-px"
+              className="ml-4 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:translate-y-px"
             >
               Me contacter
             </Link>
@@ -100,6 +102,7 @@ export default function Navigation() {
                     {item.name}
                   </Link>
                 ))}
+                <SocialLinks className="px-3 py-3" withLabels />
                 <Link
                   href="/#contact"
                   className="mt-3 block rounded-md bg-primary px-3 py-3 text-center text-base font-semibold text-primary-foreground"

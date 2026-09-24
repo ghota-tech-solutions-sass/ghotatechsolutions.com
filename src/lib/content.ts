@@ -149,18 +149,39 @@ export const projects: Project[] = [
     fact: 'Client réel, V1 livrée en une journée.',
   },
   {
+    name: 'Flexwall',
+    href: 'https://flexwall.lol',
+    what: 'Une page publique de tuiles en direct, branchées sur vos vrais comptes : revenus Stripe, activité GitHub, toute API.',
+    stack: 'GCP, Terraform, connecteurs d’API',
+    fact: 'Plateforme en ligne, déployée en continu.',
+  },
+  {
     name: 'Kitten Clash Arena',
     href: 'https://kittenclash.com',
-    what: 'Jeu de combat de chatons dans le navigateur.',
+    what: 'Adoptez un chaton, entraînez-le et affrontez d’autres joueurs dans une arène en ligne.',
     stack: 'Cloud Run, Terraform, Sign in with Apple',
-    fact: 'Jeu en ligne en production sur GCP.',
+    fact: 'Gratuit, sans téléchargement, dans le navigateur.',
   },
   {
     name: 'Outilis',
     href: 'https://outilis.fr',
-    what: 'Outils en ligne gratuits du quotidien.',
+    what: 'Salaire brut/net, prêt immobilier, factures, QR codes, mots de passe : les outils du quotidien.',
     stack: 'Next.js',
-    fact: 'Outils gratuits, utilisables directement.',
+    fact: '92 outils gratuits, sans inscription.',
+  },
+  {
+    name: 'Outilio',
+    href: 'https://outilio.fr',
+    what: 'Location d’outils entre particuliers : perceuse, bétonnière, tondeuse.',
+    stack: 'Next.js',
+    fact: 'Place de marché entre particuliers.',
+  },
+  {
+    name: 'Rive Verte',
+    href: 'https://rive-verte.fr',
+    what: 'Site du restaurant chinois Rive Verte à Lyon 7e : carte, horaires et réservation.',
+    stack: 'Next.js, Supabase',
+    fact: 'Site client livré sous la marque Ghota Tech.',
   },
 ];
 

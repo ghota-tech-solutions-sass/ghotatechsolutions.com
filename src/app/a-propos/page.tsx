@@ -65,7 +65,16 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <aside className="self-end rounded-xl border border-border bg-card p-6">
+            <aside className="self-end overflow-hidden rounded-xl border border-border bg-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/mickael-villers.jpg"
+                alt="Mickaël Villers"
+                width={640}
+                height={800}
+                className="aspect-square w-full object-cover object-[50%_70%]"
+              />
+              <div className="p-6">
               <dl className="space-y-4 text-sm">
                 <div className="flex justify-between gap-4">
                   <dt className="text-muted-foreground">Basé à</dt>
@@ -88,6 +97,7 @@ export default function AboutPage() {
                 <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">LinkedIn</a>
                 <a href={MALT_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">Malt</a>
                 <a href={X_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">X</a>
+              </div>
               </div>
             </aside>
           </div>

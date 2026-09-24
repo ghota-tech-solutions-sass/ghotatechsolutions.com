@@ -34,8 +34,10 @@ export default function Footer() {
               <li><a href="https://whowillbreakit.com" target="_blank" rel="noopener noreferrer" className={linkClass}>Who Will Break It?</a></li>
               <li><a href="https://roastmypic.ai" target="_blank" rel="noopener noreferrer" className={linkClass}>RoastMyPic</a></li>
               <li><a href="https://lettrio.app" target="_blank" rel="noopener noreferrer" className={linkClass}>Lettrio</a></li>
+              <li><a href="https://flexwall.lol" target="_blank" rel="noopener noreferrer" className={linkClass}>Flexwall</a></li>
+              <li><a href="https://kittenclash.com" target="_blank" rel="noopener noreferrer" className={linkClass}>Kitten Clash Arena</a></li>
               <li><a href="https://outilis.fr" target="_blank" rel="noopener noreferrer" className={linkClass}>Outilis</a></li>
-              <li><Link href="/rift-dice" className={linkClass}>Rift Dice</Link></li>
+              <li><a href="https://outilio.fr" target="_blank" rel="noopener noreferrer" className={linkClass}>Outilio</a></li>
             </ul>
           </div>
 
@@ -57,7 +59,6 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/mentions-legales" className={linkClass}>Mentions légales</Link>
             <Link href="/politique-confidentialite" className={linkClass}>Confidentialité</Link>
-            <Link href="/rift-dice/support" className={linkClass}>Support Rift Dice</Link>
           </div>
         </div>
       </div>

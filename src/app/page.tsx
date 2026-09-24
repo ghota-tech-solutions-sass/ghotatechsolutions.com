@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
+import SocialLinks from '@/components/SocialLinks';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { career, clients, experiments, offers, projects, steps } from '@/lib/content';
 
@@ -25,9 +26,20 @@ export default function Home() {
           />
           <div className="relative mx-auto grid max-w-6xl gap-14 px-4 pb-20 pt-20 sm:px-6 md:pt-28 lg:grid-cols-[1.35fr_1fr] lg:items-end lg:px-8">
             <div>
-              <p className="text-sm font-medium text-muted-foreground">
-                Mickaël Villers · Ingénieur DevOps et IA · Lyon
-              </p>
+              <div className="flex items-center gap-4">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/mickael-villers.jpg"
+                  alt="Mickaël Villers"
+                  width={56}
+                  height={70}
+                  className="h-14 w-14 rounded-full object-cover object-[50%_35%] ring-1 ring-white/10"
+                />
+                <p className="text-sm font-medium text-muted-foreground">
+                  <span className="block text-foreground">Mickaël Villers</span>
+                  Ingénieur DevOps et IA · Lyon
+                </p>
+              </div>
               <h1
                 id="hero-title"
                 className="mt-6 text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-foreground sm:text-6xl"
@@ -51,6 +63,7 @@ export default function Home() {
                   Voir ce que je propose ↓
                 </Link>
               </div>
+              <SocialLinks className="mt-8" withLabels />
             </div>
 
             <dl className="divide-y divide-border rounded-xl border border-border bg-card/70 backdrop-blur-sm">
@@ -179,7 +192,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
+            <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
               {projects.map((p) => (
                 <a
                   key={p.name}
