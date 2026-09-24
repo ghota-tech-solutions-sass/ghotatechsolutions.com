@@ -11,10 +11,9 @@ const spans: Record<string, string> = {
   Lettrio: 'lg:col-span-2',
   'Los Arditos': 'lg:col-span-2',
   Flexwall: 'lg:col-span-2',
-  'Rive Verte': 'lg:col-span-3',
-  'Kitten Clash Arena': 'lg:col-span-3',
-  Outilis: 'lg:col-span-3',
-  Outilio: 'lg:col-span-3',
+  'Rive Verte': 'lg:col-span-2',
+  'Kitten Clash Arena': 'lg:col-span-2',
+  Outilis: 'lg:col-span-2',
 };
 
 const labFacts = [
@@ -106,7 +105,7 @@ export default function Home() {
         <section id="projets" className="scroll-mt-16 border-t border-border" aria-labelledby="projets-title">
           <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
             <h2 id="projets-title" className="max-w-2xl text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              Neuf sites en ligne, que j’ai conçus et codés
+              Huit sites en ligne, que j’ai conçus et codés
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Mes propres produits, et des sites livrés à des clients. Tout est en ligne, vous pouvez cliquer.

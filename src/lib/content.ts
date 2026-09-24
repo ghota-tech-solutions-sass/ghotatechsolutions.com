@@ -137,14 +137,6 @@ export const projects: Project[] = [
     fact: '92 outils gratuits, sans inscription.',
   },
   {
-    name: 'Outilio',
-    href: 'https://outilio.fr',
-    image: '/projets/outilio.webp',
-    what: 'Location d’outils entre particuliers : perceuse, bétonnière, tondeuse.',
-    stack: 'Next.js',
-    fact: 'Place de marché entre particuliers.',
-  },
-  {
     name: 'Rive Verte',
     href: 'https://rive-verte.fr',
     image: '/projets/riveverte.webp',
