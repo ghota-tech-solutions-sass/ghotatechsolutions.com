@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "Monitoring",
     "Observabilité"
   ],
-  authors: [{ name: "Mickaël Villers", url: "https://www.linkedin.com/in/micka%C3%ABl-villers-1b1a6496/" }],
+  authors: [{ name: "Mickaël Villers", url: "https://www.linkedin.com/in/mickaelvillers/" }],
   creator: "Mickaël Villers",
   publisher: "Ghota Tech Solutions",
   metadataBase: new URL('https://ghotatechsolutions.com'),
@@ -112,7 +112,7 @@ const jsonLd = {
         url: 'https://ghotatechsolutions.com/icon.svg',
       },
       sameAs: [
-        'https://www.linkedin.com/in/micka%C3%ABl-villers-1b1a6496/',
+        'https://www.linkedin.com/in/mickaelvillers/',
         'https://www.malt.fr/profile/mickaelvillers',
         'https://x.com/MickaelV79228',
       ],
@@ -188,7 +188,7 @@ const jsonLd = {
         '@id': 'https://ghotatechsolutions.com/#organization',
       },
       sameAs: [
-        'https://www.linkedin.com/in/micka%C3%ABl-villers-1b1a6496/',
+        'https://www.linkedin.com/in/mickaelvillers/',
         'https://www.malt.fr/profile/mickaelvillers',
         'https://x.com/MickaelV79228',
       ],

@@ -3,7 +3,7 @@
 // page du projet). Pas de métrique interne (revenus, rétention, analytics).
 
 export const CONTACT_EMAIL = 'contact@ghotatechsolutions.com';
-export const LINKEDIN_URL = 'https://www.linkedin.com/in/micka%C3%ABl-villers-1b1a6496/';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/mickaelvillers/';
 export const MALT_URL = 'https://www.malt.fr/profile/mickaelvillers';
 export const X_URL = 'https://x.com/MickaelV79228';
 
