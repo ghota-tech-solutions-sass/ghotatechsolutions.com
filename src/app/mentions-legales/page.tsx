@@ -47,11 +47,10 @@ export default function MentionsLegales() {
                 </p>
                 <div className="bg-slate-900/50 p-6 rounded-lg border border-white/5">
                   <p className="text-gray-400">
-                    <strong className="text-white">Google Cloud Platform (Cloud Run)</strong><br />
-                    Google Ireland Limited<br />
-                    Gordon House, Barrow Street<br />
-                    Dublin 4, Irlande<br /><br />
-                    <span className="text-sm">Région d&apos;hébergement : Europe West 1 (Belgique)</span>
+                    <strong className="text-white">GitHub Pages</strong><br />
+                    GitHub, Inc.<br />
+                    88 Colin P. Kelly Jr. St.<br />
+                    San Francisco, CA 94107, États-Unis
                   </p>
                 </div>
               </section>

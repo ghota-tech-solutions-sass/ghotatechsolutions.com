@@ -1,96 +1,84 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const navigation = [
+  { name: 'Offres', href: '/services' },
+  { name: 'Labo IA', href: '/#labo' },
+  { name: 'Réalisations', href: '/#realisations' },
+  { name: 'À propos', href: '/a-propos' },
+];
+
 export default function Navigation() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigation = [
-    { name: 'Accueil', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'À propos', href: '/a-propos' },
-  ];
+  const isActive = (href: string) => !href.includes('#') && pathname === href;
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 py-4"
-      style={{
-        background: isScrolled ? 'rgba(15, 23, 42, 0.8)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: isScrolled ? 'blur(12px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid transparent',
-        boxShadow: isScrolled ? '0 10px 15px -3px rgba(0, 0, 0, 0.1)' : 'none',
-        transition: 'background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease',
-      }}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-300 ${
+        isScrolled || isMenuOpen
+          ? 'border-b border-white/[0.07] bg-[#0c0d0f]/90 backdrop-blur-md'
+          : 'border-b border-transparent'
+      }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 group" aria-label="Ghota Tech Solutions - Accueil">
-              <span className="text-2xl font-bold text-white transition-transform duration-300 group-hover:scale-105 inline-block">
-                <span className="text-blue-400">GTS</span>
-              </span>
-            </Link>
-          </div>
+      <nav className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
+        <div className="flex h-16 items-center justify-between">
+          <Link href="/" className="flex items-baseline gap-2" aria-label="Ghota Tech Solutions - Accueil">
+            <span className="text-lg font-semibold tracking-tight text-foreground">Ghota Tech</span>
+            <span className="hidden text-sm text-muted-foreground sm:inline">· Mickaël Villers</span>
+          </Link>
 
-          {/* Desktop navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden items-center gap-1 md:flex">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/10"
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground ${
+                  isActive(item.href) ? 'text-foreground' : 'text-muted-foreground'
+                }`}
               >
                 {item.name}
               </Link>
             ))}
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="mailto:contact@ghotatechsolutions.com"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors hover:shadow-lg hover:shadow-blue-500/25"
-              aria-label="Envoyer un email de contact"
+            <Link
+              href="/#contact"
+              className="ml-3 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:translate-y-px"
             >
-              Contact
-            </motion.a>
+              Me contacter
+            </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex min-h-11 min-w-11 items-center justify-center text-gray-300 hover:text-white focus:outline-none p-2 rounded-md hover:bg-white/10 transition-colors"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            >
-              <span className="sr-only">{isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}</span>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          >
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
         </div>
 
-        {/* Mobile menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -99,31 +87,31 @@ export default function Navigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden absolute top-full left-0 right-0 glass border-t border-white/10 overflow-hidden"
+              className="overflow-hidden md:hidden"
             >
-              <div className="px-4 pt-2 pb-6 space-y-2">
+              <div className="space-y-1 pb-6 pt-2">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-gray-300 hover:text-white hover:bg-white/10 block px-3 py-3 rounded-md text-base font-medium transition-colors"
+                    className="block rounded-md px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <a
-                  href="mailto:contact@ghotatechsolutions.com"
-                  className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-3 rounded-md text-base font-medium text-center mt-4 transition-colors"
+                <Link
+                  href="/#contact"
+                  className="mt-3 block rounded-md bg-primary px-3 py-3 text-center text-base font-semibold text-primary-foreground"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Contact
-                </a>
+                  Me contacter
+                </Link>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </nav>
-    </motion.header>
+    </header>
   );
 }

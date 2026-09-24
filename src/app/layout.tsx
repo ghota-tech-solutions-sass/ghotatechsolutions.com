@@ -1,20 +1,35 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Ghota Tech Solutions | Expert DevOps & Cloud à Lyon",
+    default: "Ghota Tech Solutions | IA privée, IA sur GCP et DevOps à Lyon",
     template: "%s | Ghota Tech Solutions"
   },
-  description: "Expert DevOps freelance à Lyon. +9 ans d'expérience en CI/CD, Kubernetes, GCP, Terraform. Accompagnement dans la modernisation de vos infrastructures cloud. Devis gratuit.",
+  description: "Mickaël Villers, ingénieur DevOps et IA à Lyon. Je déploie des LLM privés sur votre infra, je mets vos apps IA en production sur Google Cloud et j'optimise votre plateforme. 9 ans d'expérience (HomeServe, M6).",
   keywords: [
+    "IA privée",
+    "LLM local",
+    "LLM on-premise",
+    "IA souveraine",
+    "Déploiement LLM",
+    "Gemini Google Cloud",
+    "Vertex AI",
+    "Consultant IA Lyon",
+    "LLMOps",
     "DevOps Lyon",
     "Expert DevOps freelance",
     "Consultant DevOps",
@@ -34,7 +49,7 @@ export const metadata: Metadata = {
     "Monitoring",
     "Observabilité"
   ],
-  authors: [{ name: "Mickaël Villers", url: "https://www.linkedin.com/in/villers/" }],
+  authors: [{ name: "Mickaël Villers", url: "https://www.linkedin.com/in/micka%C3%ABl-villers-1b1a6496/" }],
   creator: "Mickaël Villers",
   publisher: "Ghota Tech Solutions",
   metadataBase: new URL('https://ghotatechsolutions.com'),
@@ -48,22 +63,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: 'https://ghotatechsolutions.com',
-    title: 'Ghota Tech Solutions | Expert DevOps & Cloud à Lyon',
-    description: 'Expert DevOps freelance à Lyon. +9 ans d\'expérience. CI/CD, Kubernetes, GCP, Terraform. Modernisez vos infrastructures cloud.',
+    title: 'Ghota Tech Solutions | IA privée, IA sur GCP et DevOps à Lyon',
+    description: 'LLM privés sur votre infra, apps IA en production sur Google Cloud, plateforme et FinOps. Mickaël Villers, Lyon.',
     siteName: 'Ghota Tech Solutions',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Ghota Tech Solutions - Expert DevOps',
+        alt: 'Ghota Tech Solutions - IA et DevOps',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ghota Tech Solutions | Expert DevOps & Cloud',
-    description: 'Expert DevOps freelance à Lyon. CI/CD, Kubernetes, GCP, Terraform.',
+    title: 'Ghota Tech Solutions | IA privée, IA sur GCP et DevOps',
+    description: 'LLM privés, apps IA en production sur Google Cloud, plateforme et FinOps. Lyon.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -97,7 +112,9 @@ const jsonLd = {
         url: 'https://ghotatechsolutions.com/icon.svg',
       },
       sameAs: [
-        'https://www.linkedin.com/in/villers/',
+        'https://www.linkedin.com/in/micka%C3%ABl-villers-1b1a6496/',
+        'https://www.malt.fr/profile/mickaelvillers',
+        'https://x.com/MickaelV79228',
       ],
       address: {
         '@type': 'PostalAddress',
@@ -127,7 +144,7 @@ const jsonLd = {
       '@type': 'LocalBusiness',
       '@id': 'https://ghotatechsolutions.com/#localbusiness',
       name: 'Ghota Tech Solutions',
-      description: 'Expert DevOps freelance à Lyon. +9 ans d\'expérience en CI/CD, Kubernetes, GCP, Terraform.',
+      description: 'IA privée, IA sur Google Cloud et DevOps à Lyon. 9 ans d\'expérience en Kubernetes, GCP, Terraform et CI/CD.',
       url: 'https://ghotatechsolutions.com',
       telephone: '+33 6 37 83 58 81',
       email: 'contact@ghotatechsolutions.com',
@@ -166,14 +183,21 @@ const jsonLd = {
       '@type': 'Person',
       '@id': 'https://ghotatechsolutions.com/#person',
       name: 'Mickaël Villers',
-      jobTitle: 'Expert DevOps & Cloud',
+      jobTitle: 'Ingénieur DevOps et IA',
       worksFor: {
         '@id': 'https://ghotatechsolutions.com/#organization',
       },
       sameAs: [
-        'https://www.linkedin.com/in/villers/',
+        'https://www.linkedin.com/in/micka%C3%ABl-villers-1b1a6496/',
+        'https://www.malt.fr/profile/mickaelvillers',
+        'https://x.com/MickaelV79228',
       ],
       knowsAbout: [
+        'Large Language Models',
+        'LLM self-hosting',
+        'MLX',
+        'Gemini',
+        'Vertex AI',
         'DevOps',
         'CI/CD',
         'Kubernetes',
@@ -189,46 +213,38 @@ const jsonLd = {
     {
       '@type': 'Service',
       '@id': 'https://ghotatechsolutions.com/#service',
-      name: 'Services DevOps',
+      name: 'IA privée, IA sur Google Cloud et DevOps',
       provider: {
         '@id': 'https://ghotatechsolutions.com/#organization',
       },
-      serviceType: 'Conseil DevOps',
+      serviceType: 'Conseil IA et DevOps',
       areaServed: 'France',
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Services DevOps',
+        name: 'Offres Ghota Tech Solutions',
         itemListElement: [
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'CI/CD & Automatisation',
-              description: 'Mise en place de pipelines CI/CD avec GitHub Actions, GitLab CI',
+              name: 'IA privée',
+              description: 'Choix, mesure et installation de LLM open source sur votre infrastructure, sans envoyer vos données à une API externe',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Cloud & Conteneurs',
-              description: 'Migration et architecture sur GCP, Kubernetes, Docker',
+              name: 'IA sur Google Cloud',
+              description: 'Mise en production d\'applications IA sur GCP : Gemini, Cloud Run, Terraform, CI/CD',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Infrastructure as Code',
-              description: 'Automatisation avec Terraform et Terragrunt',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Observabilité & Monitoring',
-              description: 'Mise en place de solutions de monitoring et alerting',
+              name: 'Plateforme & FinOps',
+              description: 'Kubernetes, Terraform, CI/CD et réduction de la facture cloud sur GCP et AWS',
             },
           },
         ],
@@ -278,7 +294,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-background text-foreground antialiased`}>
+      <body className={`${geist.variable} ${geistMono.variable} font-sans bg-background text-foreground antialiased`}>
         <GoogleTagManager gtmId="GTM-K22W23KR" />
         <CookieConsent />
         {children}

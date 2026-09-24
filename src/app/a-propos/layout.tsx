@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'À propos - Mickaël Villers, Expert DevOps',
-  description: 'Mickaël Villers, expert DevOps avec +9 ans d\'expérience. Spécialiste GCP, Kubernetes, Terraform, CI/CD. Missions chez HomeServe, Bedrock (M6), Cegid. Basé à Lyon.',
+  title: 'À propos - Mickaël Villers, ingénieur DevOps et IA',
+  description: 'Mickaël Villers, ingénieur DevOps et IA à Lyon. 9 ans d\'expérience (HomeServe, Bedrock/M6, Cegid), LLM open source mesurés en local, apps IA sur Google Cloud.',
   keywords: [
     'Mickaël Villers',
     'Expert DevOps Lyon',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'À propos de Mickaël Villers | Ghota Tech Solutions',
-    description: 'Expert DevOps avec +9 ans d\'expérience. GCP, Kubernetes, Terraform, CI/CD. Basé à Lyon.',
+    description: 'Ingénieur DevOps et IA, 9 ans d\'expérience. LLM privés, Google Cloud, Kubernetes. Lyon.',
     url: 'https://ghotatechsolutions.com/a-propos',
     type: 'profile',
   },

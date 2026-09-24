@@ -1,9 +1,13 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Services DevOps - CI/CD, Kubernetes, Cloud, Terraform',
-  description: "Services DevOps : CI/CD, Kubernetes, migration cloud GCP, Infrastructure as Code Terraform, monitoring, et déploiement d'IA et de LLM en local ou cloud. Expert DevOps & IA à Lyon.",
+  title: 'Offres - IA privée, IA sur Google Cloud, Plateforme & FinOps',
+  description: "Trois offres : LLM privés installés sur votre infrastructure, applications IA mises en production sur Google Cloud (Gemini, Cloud Run, Terraform), et plateforme cloud Kubernetes/FinOps. Mickaël Villers, Lyon.",
   keywords: [
+    'IA privée',
+    'LLM on-premise',
+    'Déploiement Gemini',
+    'Consultant IA Lyon',
     'Services DevOps',
     'CI/CD pipeline',
     'GitHub Actions',
@@ -26,8 +30,8 @@ export const metadata: Metadata = {
     canonical: '/services',
   },
   openGraph: {
-    title: 'Services DevOps | Ghota Tech Solutions',
-    description: 'CI/CD, Kubernetes, Cloud GCP, Terraform, Monitoring. Expert DevOps freelance à Lyon.',
+    title: 'Offres IA et DevOps | Ghota Tech Solutions',
+    description: 'LLM privés, IA sur Google Cloud, plateforme et FinOps. Mickaël Villers, Lyon.',
     url: 'https://ghotatechsolutions.com/services',
     type: 'website',
   },

@@ -1,596 +1,259 @@
-'use client';
-
+import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ContactSection from '@/components/ContactSection';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { floatingElements } from '@/lib/floating-elements';
-import { motion } from 'framer-motion';
+import { career, clients, experiments, offers, projects, steps } from '@/lib/content';
+
+const heroFacts = [
+  { value: '9 ans', label: 'd’expérience dev et ops en production (HomeServe, M6)' },
+  { value: '1 jour', label: 'pour livrer un site client avec un LLM 100 % local' },
+  { value: '9,3 M', label: 'de clics traités en 82 h par un de mes jeux' },
+];
 
 export default function Home() {
   return (
     <>
       <Navigation />
 
-      <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-16" aria-label="Section d'accueil">
-          {/* Animated Grid Background */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-[0.08]" />
-            {/* Scanning line effect */}
-            <motion.div
-              className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
-              animate={{
-                top: ["0%", "100%"],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-          </div>
-
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/50 to-slate-950 z-10" />
-            <motion.img
-              initial={{ scale: 1.1, opacity: 0 }}
-              animate={{ scale: 1, opacity: 0.4 }}
-              transition={{ duration: 1.5 }}
-              src="/hero-bg.png"
-              alt="Background"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Animated connection nodes */}
-          <svg className="absolute inset-0 w-full h-full z-[1] pointer-events-none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            {/* Connection lines */}
-            <motion.line
-              x1="10%" y1="20%" x2="25%" y2="35%"
-              stroke="rgba(59, 130, 246, 0.2)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: [0, 1, 1, 0] }}
-              transition={{ duration: 4, repeat: Infinity, times: [0, 0.4, 0.6, 1] }}
-            />
-            <motion.line
-              x1="25%" y1="35%" x2="40%" y2="25%"
-              stroke="rgba(139, 92, 246, 0.2)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: [0, 1, 1, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 0.5, times: [0, 0.4, 0.6, 1] }}
-            />
-            <motion.line
-              x1="75%" y1="30%" x2="85%" y2="45%"
-              stroke="rgba(16, 185, 129, 0.2)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: [0, 1, 1, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 1, times: [0, 0.4, 0.6, 1] }}
-            />
-            <motion.line
-              x1="60%" y1="70%" x2="75%" y2="60%"
-              stroke="rgba(59, 130, 246, 0.2)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: [0, 1, 1, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 1.5, times: [0, 0.4, 0.6, 1] }}
-            />
-            <motion.line
-              x1="20%" y1="65%" x2="35%" y2="75%"
-              stroke="rgba(236, 72, 153, 0.15)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: [0, 1, 1, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 2, times: [0, 0.4, 0.6, 1] }}
-            />
-
-            {/* Nodes */}
-            <motion.circle cx="10%" cy="20%" r="3" fill="#3b82f6" opacity="0.4"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-            <motion.circle cx="25%" cy="35%" r="4" fill="#8b5cf6" opacity="0.4"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-              transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}
-            />
-            <motion.circle cx="40%" cy="25%" r="3" fill="#10b981" opacity="0.4"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0.6, 0.4] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-            />
-            <motion.circle cx="75%" cy="30%" r="4" fill="#3b82f6" opacity="0.4"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
-              transition={{ duration: 3, repeat: Infinity, delay: 0.3 }}
-            />
-            <motion.circle cx="85%" cy="45%" r="3" fill="#8b5cf6" opacity="0.4"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-              transition={{ duration: 3.5, repeat: Infinity, delay: 0.8 }}
-            />
-            <motion.circle cx="60%" cy="70%" r="4" fill="#10b981" opacity="0.4"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0.6, 0.4] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 1.2 }}
-            />
-            <motion.circle cx="75%" cy="60%" r="3" fill="#ec4899" opacity="0.3"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 3, repeat: Infinity, delay: 0.6 }}
-            />
-            <motion.circle cx="20%" cy="65%" r="3" fill="#3b82f6" opacity="0.4"
-              animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-              transition={{ duration: 3.5, repeat: Infinity, delay: 1.5 }}
-            />
-            <motion.circle cx="35%" cy="75%" r="4" fill="#fbbf24" opacity="0.3"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.6, 0.3] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 2 }}
-            />
-          </svg>
-
-          {/* Floating gradient orbs */}
-          <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-            {floatingElements.map((el, i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-full blur-3xl"
-                style={{
-                  width: el.width,
-                  height: el.height,
-                  left: el.left,
-                  top: el.top,
-                  background: i % 3 === 0
-                    ? 'rgba(59, 130, 246, 0.08)'
-                    : i % 3 === 1
-                      ? 'rgba(139, 92, 246, 0.08)'
-                      : 'rgba(16, 185, 129, 0.06)',
-                }}
-                animate={{
-                  y: [0, el.y],
-                  x: [0, el.x],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: el.duration,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              />
-            ))}
-          </div>
-
-          {/* Animated gradient overlay */}
-          <motion.div
-            className="absolute inset-0 z-[2] pointer-events-none"
-            animate={{
-              background: [
-                "radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
-                "radial-gradient(ellipse 80% 50% at 80% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)",
-                "radial-gradient(ellipse 80% 50% at 50% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 50%)",
-                "radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
-              ]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+      <main id="contenu">
+        {/* Accroche */}
+        <section className="grain relative overflow-hidden pt-16" aria-labelledby="hero-title">
+          <div
+            className="pointer-events-none absolute -top-40 right-[-10%] h-[520px] w-[520px] rounded-full bg-primary/[0.07] blur-3xl"
+            aria-hidden="true"
           />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-white">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 inline-block">
-                  Expert DevOps &amp; Cloud freelance à Lyon
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
-                Votre partenaire DevOps pour des infrastructures <span className="text-white font-medium">fiables</span>, <span className="text-white font-medium">scalables</span> et <span className="text-white font-medium">optimisées</span>.
+          <div className="relative mx-auto grid max-w-6xl gap-14 px-4 pb-20 pt-20 sm:px-6 md:pt-28 lg:grid-cols-[1.35fr_1fr] lg:items-end lg:px-8">
+            <div>
+              <p className="text-sm font-medium text-muted-foreground">
+                Mickaël Villers · Ingénieur DevOps et IA · Lyon
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="mailto:contact@ghotatechsolutions.com"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors hover:shadow-lg hover:shadow-blue-500/25"
-                  aria-label="Envoyer un email pour nous contacter"
+              <h1
+                id="hero-title"
+                className="mt-6 text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-foreground sm:text-6xl"
+              >
+                Je mets l’IA en production.
+                <span className="block text-muted-foreground">Chez vous ou sur Google Cloud.</span>
+              </h1>
+              <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                J’installe des LLM privés sur votre infrastructure, je déploie vos applications IA sur GCP et je
+                rends votre plateforme cloud moins chère. Chaque modèle que je recommande, je l’ai d’abord mesuré
+                sur ma propre machine.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <Link
+                  href="#contact"
+                  className="rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition hover:brightness-110 active:translate-y-px"
                 >
-                  Contactez-nous
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="/services"
-                  className="glass text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-semibold transition-colors"
-                  aria-label="Voir la liste de nos services DevOps"
-                >
-                  Découvrir nos services
-                </motion.a>
+                  Parler de votre projet
+                </Link>
+                <Link href="#offres" className="text-base font-medium text-foreground underline-offset-4 hover:underline">
+                  Voir ce que je propose ↓
+                </Link>
               </div>
-            </motion.div>
+            </div>
+
+            <dl className="divide-y divide-border rounded-xl border border-border bg-card/70 backdrop-blur-sm">
+              {heroFacts.map((fact) => (
+                <div key={fact.value} className="flex items-baseline gap-5 px-6 py-5">
+                  <dt className="tabular min-w-[5.5rem] font-mono text-2xl font-medium text-primary">{fact.value}</dt>
+                  <dd className="text-sm leading-snug text-muted-foreground">{fact.label}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-400"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </motion.div>
-          </motion.div>
+          <div className="relative border-y border-border bg-muted/40">
+            <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 gap-y-3 px-4 py-5 text-sm sm:px-6 lg:px-8">
+              <span className="text-muted-foreground">Missions réalisées pour</span>
+              {clients.map((client) => (
+                <span key={client} className="font-medium text-foreground/80">
+                  {client}
+                </span>
+              ))}
+            </div>
+          </div>
         </section>
 
-        {/* Services aperçu */}
-        <section className="py-32 bg-slate-950 relative" aria-label="Aperçu des services">
-          <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
+        {/* Offres */}
+        <section id="offres" className="scroll-mt-20" aria-labelledby="offres-title">
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium text-primary">Ce que je fais pour vous</p>
+              <h2 id="offres-title" className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+                Trois façons de travailler ensemble
+              </h2>
+            </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <ScrollReveal width="100%">
-              <div className="text-center mb-20">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                  Expertise DevOps complète
-                </h2>
-                <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                  Des solutions personnalisées pour moderniser et optimiser vos infrastructures
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  title: "CI/CD & Automatisation",
-                  desc: "Pipelines robustes pour accélérer vos déploiements",
-                  icon: (
-                    <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  )
-                },
-                {
-                  title: "Cloud & Conteneurs",
-                  desc: "Expertise GCP, Kubernetes, Docker",
-                  icon: (
-                    <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                    </svg>
-                  )
-                },
-                {
-                  title: "Déploiement d'IA",
-                  desc: "Modèles IA & LLM en self-hosted ou cloud",
-                  icon: (
-                    <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                    </svg>
-                  )
-                },
-                {
-                  title: "Observabilité",
-                  desc: "Métriques, alerting, dashboards",
-                  icon: (
-                    <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                  )
-                },
-                {
-                  title: "Sécurité",
-                  desc: "Bonnes pratiques DevSecOps",
-                  icon: (
-                    <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                  )
-                }
-              ].map((service, index) => (
-                <ScrollReveal key={index} delay={index * 0.1} width="100%" overflow="visible">
-                  <motion.div
-                    whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                    className="group p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition-colors duration-300 hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col"
-                  >
-                    <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500/10 transition-colors">
-                      {service.icon}
+            <div className="mt-14 divide-y divide-border border-y border-border">
+              {offers.map((offer, i) => (
+                <ScrollReveal key={offer.id} width="100%" delay={0.05}>
+                  <article className="grid gap-6 py-10 md:grid-cols-[4rem_1fr_1fr] md:gap-10">
+                    <span className="tabular font-mono text-sm text-muted-foreground">0{i + 1}</span>
+                    <div>
+                      <p className="text-sm font-medium text-primary">{offer.kicker}</p>
+                      <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">{offer.title}</h3>
+                      <p className="mt-4 leading-relaxed text-muted-foreground">{offer.pitch}</p>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                    <p className="text-gray-400 leading-relaxed flex-grow">{service.desc}</p>
-                  </motion.div>
+                    <div className="flex flex-col justify-between gap-6">
+                      <div>
+                        <p className="text-sm text-muted-foreground">
+                          <span className="font-medium text-foreground">Pour qui : </span>
+                          {offer.forWho}
+                        </p>
+                        <p className="mt-4 border-l-2 border-primary/60 pl-4 text-sm leading-relaxed text-foreground/90">
+                          {offer.proof}
+                        </p>
+                      </div>
+                      <Link
+                        href={`/services#${offer.id}`}
+                        className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                      >
+                        Le détail de l’offre →
+                      </Link>
+                    </div>
+                  </article>
                 </ScrollReveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Clients Section */}
-        <section className="py-20 bg-slate-950 relative" aria-label="Références clients">
-          <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <ScrollReveal width="100%">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-                  Ils m&apos;ont fait confiance
+        {/* Labo IA */}
+        <section id="labo" className="scroll-mt-20 border-t border-border bg-muted/30" aria-labelledby="labo-title">
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+            <div className="grid gap-6 md:grid-cols-[1fr_1.2fr] md:items-end">
+              <div>
+                <p className="text-sm font-medium text-primary">Labo IA</p>
+                <h2 id="labo-title" className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+                  Je teste avant de conseiller
                 </h2>
-                <p className="text-gray-400">
-                  Des entreprises de toutes tailles accompagnées dans leur transformation DevOps
-                </p>
               </div>
-            </ScrollReveal>
+              <p className="max-w-xl leading-relaxed text-muted-foreground">
+                Sur un MacBook M5 Max de 128 Go, je fais tourner les modèles open source dès leur sortie et je publie
+                ce que je mesure, y compris quand le résultat contredit l’annonce. C’est ce banc d’essai que
+                j’applique ensuite à vos données.
+              </p>
+            </div>
 
-            <ScrollReveal width="100%">
-              <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-                {[
-                  { name: "HomeServe", color: "#e11d48" },
-                  { name: "Bedrock (M6)", color: "#3b82f6" },
-                  { name: "G&T EQUITY", color: "#22c55e" },
-                  { name: "Les Mini Mondes", color: "#10b981" },
-                  { name: "Journal du Coin", color: "#f59e0b" },
-                  { name: "Festa Universal", color: "#a855f7" },
-                  { name: "Lim Sas", color: "#8b5cf6" },
-                  { name: "Syned", color: "#6366f1" },
-                  { name: "KeyOpsTech", color: "#14b8a6" },
-                  { name: "HEVA", color: "#ec4899" },
-                  { name: "Cegid", color: "#0ea5e9" },
-                ].map((client, index) => (
-                  <motion.div
-                    key={client.name}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="group"
-                  >
-                    <div
-                      className="px-6 py-3 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-all duration-300"
-                      style={{
-                        boxShadow: `0 0 0 0 ${client.color}20`,
-                      }}
+            <div className="mt-14 grid gap-5 lg:grid-cols-3">
+              {experiments.map((exp) => (
+                <article key={exp.title} className="flex flex-col rounded-xl border border-border bg-card p-6">
+                  <h3 className="text-lg font-semibold leading-snug tracking-tight text-foreground">{exp.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{exp.claim}</p>
+                  <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-border pt-5">
+                    {exp.figures.map((f) => (
+                      <div key={f.label}>
+                        <dt className="sr-only">{f.label}</dt>
+                        <dd className="tabular font-mono text-xl font-medium text-foreground">{f.value}</dd>
+                        <dd className="mt-1 text-xs text-muted-foreground">{f.label}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  {exp.link && (
+                    <a
+                      href={exp.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 text-sm font-semibold text-primary underline-offset-4 hover:underline"
                     >
-                      <span
-                        className="text-lg md:text-xl font-semibold text-gray-400 group-hover:text-gray-200 transition-colors"
-                        style={{
-                          textShadow: `0 0 0 ${client.color}`,
-                        }}
-                      >
-                        {client.name}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </ScrollReveal>
+                      {exp.link.label} →
+                    </a>
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-32 bg-slate-900 relative overflow-hidden" aria-label="Appel à l'action">
-          {/* Animated background grid */}
-          <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+        {/* Réalisations */}
+        <section id="realisations" className="scroll-mt-20 border-t border-border" aria-labelledby="realisations-title">
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium text-primary">Réalisations</p>
+              <h2 id="realisations-title" className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+                Des produits en ligne, pas des maquettes
+              </h2>
+              <p className="mt-5 leading-relaxed text-muted-foreground">
+                Je conçois, code et héberge mes propres produits. Tout est en ligne, vous pouvez cliquer.
+              </p>
+            </div>
 
-          {/* Floating particles/nodes in background */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-blue-500/30 rounded-full"
-                style={{
-                  left: `${15 + i * 15}%`,
-                  top: `${20 + (i % 3) * 25}%`,
-                }}
-                animate={{
-                  y: [0, -30, 0],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 3 + i * 0.5,
-                  repeat: Infinity,
-                  delay: i * 0.3,
-                }}
-              />
-            ))}
-          </div>
-
-          {/* Animated connection lines in background */}
-          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <motion.line
-              x1="10%" y1="30%" x2="30%" y2="50%"
-              stroke="rgba(59, 130, 246, 0.15)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-            />
-            <motion.line
-              x1="70%" y1="20%" x2="90%" y2="40%"
-              stroke="rgba(139, 92, 246, 0.15)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse", delay: 0.5 }}
-            />
-            <motion.line
-              x1="80%" y1="60%" x2="95%" y2="80%"
-              stroke="rgba(16, 185, 129, 0.15)"
-              strokeWidth="1"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", delay: 1 }}
-            />
-          </svg>
-
-          {/* Gradient overlay */}
-          <motion.div
-            animate={{
-              background: [
-                "radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%)",
-                "radial-gradient(ellipse at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)",
-                "radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%)"
-              ]
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-            className="absolute inset-0"
-          />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <ScrollReveal width="100%">
-              <div className="text-center">
-                {/* DevOps Infinity Loop Illustration */}
-                <div className="mb-12 flex justify-center">
-                  <svg className="w-72 h-40 md:w-[420px] md:h-56 lg:w-[500px] lg:h-64" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Infinity loop path */}
-                    <motion.path
-                      d="M80 90 C80 50, 120 50, 160 90 C200 130, 240 130, 240 90 C240 50, 200 50, 160 90 C120 130, 80 130, 80 90"
-                      stroke="url(#infinityGradient)"
-                      strokeWidth="3"
-                      fill="none"
-                      strokeLinecap="round"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 2, ease: "easeInOut" }}
-                    />
-
-                    {/* Animated dot traveling along the infinity path */}
-                    <motion.circle
-                      r="6"
-                      fill="#3b82f6"
-                      filter="url(#glow)"
-                      animate={{
-                        offsetDistance: ["0%", "100%"],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      style={{
-                        offsetPath: "path('M80 90 C80 50, 120 50, 160 90 C200 130, 240 130, 240 90 C240 50, 200 50, 160 90 C120 130, 80 130, 80 90')",
-                      }}
-                    />
-
-                    {/* DEV side icons */}
-                    <g>
-                      {/* Code icon */}
-                      <rect x="45" y="75" width="30" height="30" rx="4" fill="rgba(59, 130, 246, 0.2)" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="1.5" />
-                      <path d="M55 85 L51 90 L55 95 M70 85 L74 90 L70 95" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <text x="60" y="120" fill="rgba(148, 163, 184, 0.8)" fontSize="10" textAnchor="middle" fontWeight="500">DEV</text>
-                    </g>
-
-                    {/* OPS side icons */}
-                    <g>
-                      {/* Server/Gear icon */}
-                      <rect x="245" y="75" width="30" height="30" rx="4" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.6)" strokeWidth="1.5" />
-                      <motion.g
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                        style={{ transformOrigin: "260px 90px" }}
-                      >
-                        <circle cx="260" cy="90" r="8" fill="none" stroke="#10b981" strokeWidth="2" />
-                        <circle cx="260" cy="90" r="3" fill="#10b981" />
-                        {/* Gear teeth */}
-                        <path d="M260 80 L260 82 M260 98 L260 100 M250 90 L252 90 M268 90 L270 90" stroke="#10b981" strokeWidth="2" strokeLinecap="round" />
-                      </motion.g>
-                      <text x="260" y="120" fill="rgba(148, 163, 184, 0.8)" fontSize="10" textAnchor="middle" fontWeight="500">OPS</text>
-                    </g>
-
-                    {/* Center icons - CI/CD pipeline steps */}
-                    {/* Build */}
-                    <motion.g
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 0 }}
-                    >
-                      <circle cx="120" cy="55" r="12" fill="rgba(251, 191, 36, 0.2)" stroke="rgba(251, 191, 36, 0.6)" strokeWidth="1.5" />
-                      <path d="M116 55 L120 51 L124 55 L120 59 Z" fill="#fbbf24" />
-                      <text x="120" y="38" fill="rgba(148, 163, 184, 0.6)" fontSize="8" textAnchor="middle">Build</text>
-                    </motion.g>
-
-                    {/* Test */}
-                    <motion.g
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                    >
-                      <circle cx="160" cy="45" r="12" fill="rgba(139, 92, 246, 0.2)" stroke="rgba(139, 92, 246, 0.6)" strokeWidth="1.5" />
-                      <path d="M156 45 L159 48 L165 42" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <text x="160" y="28" fill="rgba(148, 163, 184, 0.6)" fontSize="8" textAnchor="middle">Test</text>
-                    </motion.g>
-
-                    {/* Deploy */}
-                    <motion.g
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                    >
-                      <circle cx="200" cy="55" r="12" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.6)" strokeWidth="1.5" />
-                      <path d="M196 55 L200 51 L204 55 M200 51 L200 60" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <text x="200" y="38" fill="rgba(148, 163, 184, 0.6)" fontSize="8" textAnchor="middle">Deploy</text>
-                    </motion.g>
-
-                    {/* Monitor */}
-                    <motion.g
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
-                    >
-                      <circle cx="200" cy="125" r="12" fill="rgba(236, 72, 153, 0.2)" stroke="rgba(236, 72, 153, 0.6)" strokeWidth="1.5" />
-                      <path d="M194 125 L198 121 L202 127 L206 123" stroke="#ec4899" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <text x="200" y="148" fill="rgba(148, 163, 184, 0.6)" fontSize="8" textAnchor="middle">Monitor</text>
-                    </motion.g>
-
-                    {/* Plan */}
-                    <motion.g
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 2 }}
-                    >
-                      <circle cx="120" cy="125" r="12" fill="rgba(59, 130, 246, 0.2)" stroke="rgba(59, 130, 246, 0.6)" strokeWidth="1.5" />
-                      <path d="M116 122 L124 122 M116 125 L122 125 M116 128 L120 128" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
-                      <text x="120" y="148" fill="rgba(148, 163, 184, 0.6)" fontSize="8" textAnchor="middle">Plan</text>
-                    </motion.g>
-
-                    {/* Gradients and filters */}
-                    <defs>
-                      <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#3b82f6" />
-                        <stop offset="50%" stopColor="#8b5cf6" />
-                        <stop offset="100%" stopColor="#10b981" />
-                      </linearGradient>
-                      <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                        <feMerge>
-                          <feMergeNode in="coloredBlur" />
-                          <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                      </filter>
-                    </defs>
-                  </svg>
-                </div>
-
-                <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white">
-                  Prêt à moderniser votre infrastructure ?
-                </h2>
-                <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Contactez-nous pour discuter de vos besoins et découvrir comment Ghota Tech Solutions peut vous accompagner dans votre transformation DevOps.
-                </p>
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="mailto:contact@ghotatechsolutions.com"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-full text-lg font-semibold transition-colors hover:shadow-lg hover:shadow-blue-500/25 inline-flex items-center"
-                  aria-label="Envoyer un email pour démarrer la conversation"
+            <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
+              {projects.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col bg-background p-7 transition-colors hover:bg-card"
                 >
-                  Démarrer la conversation
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </motion.a>
-              </div>
-            </ScrollReveal>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground">{p.name}</h3>
+                    <span className="text-sm text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true">
+                      ↗
+                    </span>
+                  </div>
+                  <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">{p.what}</p>
+                  <p className="mt-5 text-sm font-medium text-foreground/90">{p.fact}</p>
+                  <p className="mt-2 font-mono text-xs text-muted-foreground">{p.stack}</p>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
+
+        {/* Méthode */}
+        <section className="border-t border-border bg-muted/30" aria-labelledby="methode-title">
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+            <p className="text-sm font-medium text-primary">Comment ça se passe</p>
+            <h2 id="methode-title" className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              Des chiffres avant les promesses
+            </h2>
+            <ol className="mt-14 grid gap-10 md:grid-cols-4 md:gap-8">
+              {steps.map((s) => (
+                <li key={s.n}>
+                  <span className="tabular font-mono text-sm text-primary">{s.n}</span>
+                  <h3 className="mt-3 text-lg font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Parcours */}
+        <section className="border-t border-border" aria-labelledby="parcours-title">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-24 sm:px-6 md:grid-cols-[1fr_1.6fr] lg:px-8">
+            <div>
+              <p className="text-sm font-medium text-primary">Parcours</p>
+              <h2 id="parcours-title" className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+                Développeur, puis DevOps, puis IA
+              </h2>
+              <Link
+                href="/a-propos"
+                className="mt-6 inline-block text-sm font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                Mon parcours complet →
+              </Link>
+            </div>
+            <ul className="divide-y divide-border border-y border-border">
+              {career.slice(0, 3).map((job) => (
+                <li key={job.company} className="grid gap-2 py-5 sm:grid-cols-[7rem_1fr]">
+                  <span className="tabular font-mono text-sm text-muted-foreground">{job.period}</span>
+                  <div>
+                    <p className="font-medium text-foreground">
+                      {job.role} · <span className="text-muted-foreground">{job.company}</span>
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{job.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <ContactSection />
       </main>
 
       <Footer />

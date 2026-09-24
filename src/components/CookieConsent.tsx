@@ -93,7 +93,7 @@ export default function CookieConsent() {
                                 <p className="text-gray-300 text-sm leading-relaxed">
                                     Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic.
                                     En cliquant sur &quot;Accepter&quot;, vous consentez à notre utilisation des cookies.
-                                    Consultez notre <a href="/politique-confidentialite" className="text-blue-400 hover:text-blue-300 underline">politique de confidentialité</a> pour en savoir plus.
+                                    Consultez notre <a href="/politique-confidentialite" className="text-primary underline hover:brightness-110">politique de confidentialité</a> pour en savoir plus.
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
@@ -105,7 +105,7 @@ export default function CookieConsent() {
                                 </button>
                                 <button
                                     onClick={() => updateConsent(true)}
-                                    className="min-h-11 px-6 py-2.5 rounded-full text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-lg shadow-blue-500/25"
+                                    className="min-h-11 px-6 py-2.5 rounded-full text-sm font-medium bg-primary text-primary-foreground font-semibold transition hover:brightness-110"
                                 >
                                     Accepter
                                 </button>
