@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Site toujours sombre : les pages légales et Rift Dice sont écrites en dur sur fond sombre. */
-  --background: #0c0d0f;
-  --foreground: #ecebe6;
+  /* Thème clair unique. Les pages Rift Dice gardent leur propre fond sombre. */
+  --background: #fbfbfa;
+  --foreground: #14161a;
 
-  /* Un seul accent, ambre désaturé */
-  --primary: #e8b04a;
-  --primary-foreground: #16130c;
+  /* Un seul accent : bleu cobalt */
+  --primary: #1f47c9;
+  --primary-foreground: #ffffff;
 
-  --secondary: #16181b;
-  --secondary-foreground: #ecebe6;
+  --secondary: #f1f2f4;
+  --secondary-foreground: #14161a;
 
-  --muted: #131518;
-  --muted-foreground: #9b9a94;
+  --muted: #f1f2f4;
+  --muted-foreground: #5b616b;
 
-  --card: #131518;
-  --card-foreground: #ecebe6;
+  --card: #ffffff;
+  --card-foreground: #14161a;
 
-  --border: #25282d;
+  --border: #e3e5e9;
 
-  --glass-bg: rgba(19, 21, 24, 0.78);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(20, 22, 26, 0.08);
 }
 
 @theme inline {
@@ -42,7 +42,7 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -84,14 +84,4 @@ p {
 
 .tabular {
   font-variant-numeric: tabular-nums;
-}
-
-/* Grain léger pour casser l'aplat du fond */
-.grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

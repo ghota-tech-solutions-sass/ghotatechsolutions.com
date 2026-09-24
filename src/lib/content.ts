@@ -7,6 +7,8 @@ export const LINKEDIN_URL = 'https://www.linkedin.com/in/micka%C3%ABl-villers-1b
 export const MALT_URL = 'https://www.malt.fr/profile/mickaelvillers';
 export const X_URL = 'https://x.com/MickaelV79228';
 
+export const CONTACT_LABEL = 'Prendre contact';
+
 export const mailto = (subject: string) =>
   `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;
 
@@ -18,7 +20,6 @@ export type Offer = {
   forWho: string;
   deliverables: string[];
   proof: string;
-  cta: string;
 };
 
 export const offers: Offer[] = [
@@ -36,7 +37,6 @@ export const offers: Offer[] = [
       'Rapport chiffré : ce qui marche, ce qui ne marche pas, ce que ça coûte par mois',
     ],
     proof: 'Six outils IA (agents de code, assistant) tournent chaque jour sur mes modèles 100 % locaux.',
-    cta: 'Parler de mon projet d’IA privée',
   },
   {
     id: 'ia-gcp',
@@ -52,7 +52,6 @@ export const offers: Offer[] = [
       'Coût par utilisateur mesuré avant le lancement',
     ],
     proof: 'Lettrio et RoastMyPic tournent exactement comme ça : Gemini, Cloud Run, Terraform.',
-    cta: 'Mettre mon app IA en production',
   },
   {
     id: 'plateforme',
@@ -68,7 +67,6 @@ export const offers: Offer[] = [
       'Mission en régie ou au forfait',
     ],
     proof: 'Chez HomeServe : 100+ dépôts migrés de GitLab vers GitHub, plusieurs milliers d’euros économisés par mois sur le cloud.',
-    cta: 'Faire auditer mon infra',
   },
 ];
 
@@ -114,6 +112,7 @@ export const experiments: Experiment[] = [
 export type Project = {
   name: string;
   href: string;
+  image: string;
   what: string;
   stack: string;
   fact: string;
@@ -123,6 +122,7 @@ export const projects: Project[] = [
   {
     name: 'Who Will Break It?',
     href: 'https://whowillbreakit.com',
+    image: '/projets/wwbi.webp',
     what: 'Un seul œuf pour tout Internet. Il casse à un nombre secret, le dernier clic gagne le lot du sponsor.',
     stack: 'Cloudflare Workers, Durable Objects',
     fact: 'Manche 1 : 9 285 219 clics, 2 707 joueurs, 99 pays en 82 h.',
@@ -130,6 +130,7 @@ export const projects: Project[] = [
   {
     name: 'RoastMyPic',
     href: 'https://roastmypic.ai',
+    image: '/projets/roastmypic.webp',
     what: 'Vous envoyez une photo, l’IA la note et vous la refait en quatre styles.',
     stack: 'Gemini (Nano Banana Pro), Cloud Run, PostgreSQL, Next.js',
     fact: 'Génération d’images en production sur GCP.',
@@ -137,6 +138,7 @@ export const projects: Project[] = [
   {
     name: 'Lettrio',
     href: 'https://lettrio.app',
+    image: '/projets/lettrio.webp',
     what: 'Des courriers administratifs rédigés par IA, en plusieurs langues.',
     stack: 'Gemini, Cloud Run, Terraform, Stripe',
     fact: 'Paiement, génération PDF et SEO multilingue.',
@@ -144,6 +146,7 @@ export const projects: Project[] = [
   {
     name: 'Los Arditos',
     href: 'https://losarditos.com',
+    image: '/projets/losarditos.webp',
     what: 'Site de location de vélos électriques à Malte, avec réservation et parcours GPX.',
     stack: 'Next.js, Cloud Run, code écrit par un LLM local',
     fact: 'Client réel, V1 livrée en une journée.',
@@ -151,6 +154,7 @@ export const projects: Project[] = [
   {
     name: 'Flexwall',
     href: 'https://flexwall.lol',
+    image: '/projets/flexwall.webp',
     what: 'Une page publique de tuiles en direct, branchées sur vos vrais comptes : revenus Stripe, activité GitHub, toute API.',
     stack: 'GCP, Terraform, connecteurs d’API',
     fact: 'Plateforme en ligne, déployée en continu.',
@@ -158,6 +162,7 @@ export const projects: Project[] = [
   {
     name: 'Kitten Clash Arena',
     href: 'https://kittenclash.com',
+    image: '/projets/kittenclash.webp',
     what: 'Adoptez un chaton, entraînez-le et affrontez d’autres joueurs dans une arène en ligne.',
     stack: 'Cloud Run, Terraform, Sign in with Apple',
     fact: 'Gratuit, sans téléchargement, dans le navigateur.',
@@ -165,6 +170,7 @@ export const projects: Project[] = [
   {
     name: 'Outilis',
     href: 'https://outilis.fr',
+    image: '/projets/outilis.webp',
     what: 'Salaire brut/net, prêt immobilier, factures, QR codes, mots de passe : les outils du quotidien.',
     stack: 'Next.js',
     fact: '92 outils gratuits, sans inscription.',
@@ -172,6 +178,7 @@ export const projects: Project[] = [
   {
     name: 'Outilio',
     href: 'https://outilio.fr',
+    image: '/projets/outilio.webp',
     what: 'Location d’outils entre particuliers : perceuse, bétonnière, tondeuse.',
     stack: 'Next.js',
     fact: 'Place de marché entre particuliers.',
@@ -179,6 +186,7 @@ export const projects: Project[] = [
   {
     name: 'Rive Verte',
     href: 'https://rive-verte.fr',
+    image: '/projets/riveverte.webp',
     what: 'Site du restaurant chinois Rive Verte à Lyon 7e : carte, horaires et réservation.',
     stack: 'Next.js, Supabase',
     fact: 'Site client livré sous la marque Ghota Tech.',
@@ -191,40 +199,40 @@ export const career: Job[] = [
   {
     role: 'Fondateur',
     company: 'Ghota Tech Solutions',
-    period: '2025 →',
+    period: 'depuis 2025',
     text: 'Conseil DevOps et IA, et développement de mes propres produits.',
   },
   {
     role: 'Ingénieur DevOps (freelance)',
     company: 'HomeServe France',
-    period: 'mai 2023 →',
+    period: 'depuis 2023',
     text: 'Équipe Platform : CI/CD, infra cloud, FinOps (plusieurs milliers d’euros économisés par mois), migration de 100+ dépôts GitLab vers GitHub, Keycloak, sécurité.',
   },
   {
     role: 'DevOps Engineer',
     company: 'Bedrock Streaming (M6)',
-    period: '2020 → 2023',
+    period: '2020-2023',
     text: 'AWS et Kubernetes à l’échelle du streaming, migration Jenkins vers GitHub Actions, pré-scaling Kubernetes, réduction des coûts, tests de charge.',
   },
   {
     role: 'Missions freelance',
     company: 'Les Mini Mondes, Journal du Coin, LIM, Syned',
-    period: '2020 → 2023',
+    period: '2020-2023',
     text: 'Migrations vers Google Cloud, Terraform, Kubernetes, CI/CD et monitoring.',
   },
   {
     role: 'Développeur puis Dev/Ops',
     company: 'KeyOpsTech, HEVA, Cegid',
-    period: '2014 → 2020',
+    period: '2014-2020',
     text: 'PHP/Symfony, AngularJS, React, premiers pipelines de déploiement et migration vers GKE.',
   },
 ];
 
 export const clients = ['HomeServe', 'Bedrock (M6)', 'Cegid', 'Les Mini Mondes', 'Journal du Coin', 'HEVA'];
 
-export const steps = [
-  { n: '01', title: 'Un appel de 30 minutes', text: 'Vous m’expliquez le besoin. Je vous dis franchement si l’IA est la bonne réponse, ou pas.' },
-  { n: '02', title: 'Une mesure avant tout devis', text: 'Je teste sur un échantillon de vos données. Vous voyez des chiffres avant de signer quoi que ce soit de gros.' },
-  { n: '03', title: 'Un prototype qui tourne', text: 'En deux à trois semaines, sur votre infra ou la mienne.' },
-  { n: '04', title: 'La mise en production', text: 'Terraform, CI/CD, monitoring, documentation. Votre équipe peut reprendre la main.' },
+export const steps: { title: string; text: string }[] = [
+  { title: 'Un appel de 30 minutes', text: 'Vous m’expliquez le besoin. Je vous dis franchement si l’IA est la bonne réponse, ou pas.' },
+  { title: 'Une mesure avant tout devis', text: 'Je teste sur un échantillon de vos données. Vous voyez les chiffres avant de vous engager sur un projet complet.' },
+  { title: 'Un prototype qui tourne', text: 'En deux à trois semaines, sur votre infra ou la mienne.' },
+  { title: 'La mise en production', text: 'Terraform, CI/CD, monitoring, documentation. Votre équipe peut reprendre la main.' },
 ];

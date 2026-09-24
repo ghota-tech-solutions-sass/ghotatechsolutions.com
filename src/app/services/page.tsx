@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
-import { mailto, offers, steps } from '@/lib/content';
+import { offers, steps } from '@/lib/content';
 
 const practical = [
   {
@@ -29,7 +29,7 @@ export default function ServicesPage() {
       <Navigation />
 
       <main id="contenu" className="pt-16">
-        <header className="grain relative overflow-hidden border-b border-border">
+        <header className="relative border-b border-border">
           <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
             <p className="text-sm font-medium text-primary">Offres</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-foreground md:text-5xl">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
                 <a
                   key={o.id}
                   href={`#${o.id}`}
-                  className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition hover:border-white/20 hover:bg-white/[0.03]"
+                  className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition hover:border-foreground/30 hover:bg-card"
                 >
                   {o.kicker}
                 </a>
@@ -57,12 +57,12 @@ export default function ServicesPage() {
           <section
             key={offer.id}
             id={offer.id}
-            className={`scroll-mt-20 border-b border-border ${i % 2 === 1 ? 'bg-muted/30' : ''}`}
+            className={`scroll-mt-20 border-b border-border ${i % 2 === 1 ? 'bg-card' : ''}`}
             aria-labelledby={`${offer.id}-title`}
           >
             <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1fr_1fr] lg:px-8">
               <div>
-                <p className="tabular font-mono text-sm text-muted-foreground">0{i + 1} · {offer.kicker}</p>
+                <p className="text-sm font-medium text-primary">{offer.kicker}</p>
                 <h2 id={`${offer.id}-title`} className="mt-4 text-3xl font-semibold tracking-tight text-foreground">
                   {offer.title}
                 </h2>
@@ -71,12 +71,6 @@ export default function ServicesPage() {
                   <span className="font-medium text-foreground">Pour qui : </span>
                   {offer.forWho}
                 </p>
-                <a
-                  href={mailto(`${offer.kicker} : `)}
-                  className="mt-8 inline-flex rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:translate-y-px"
-                >
-                  {offer.cta}
-                </a>
               </div>
 
               <div className="rounded-xl border border-border bg-card p-6 md:p-8">
@@ -105,9 +99,8 @@ export default function ServicesPage() {
             </h2>
             <ol className="mt-12 grid gap-10 md:grid-cols-4 md:gap-8">
               {steps.map((s) => (
-                <li key={s.n}>
-                  <span className="tabular font-mono text-sm text-primary">{s.n}</span>
-                  <h3 className="mt-3 text-lg font-semibold text-foreground">{s.title}</h3>
+                <li key={s.title} className="border-t-2 border-foreground pt-5">
+                  <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
                 </li>
               ))}
@@ -115,7 +108,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="bg-muted/30" aria-labelledby="pratique-title">
+        <section className="bg-card" aria-labelledby="pratique-title">
           <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1fr_2fr] lg:px-8">
             <div>
               <h2 id="pratique-title" className="text-3xl font-semibold tracking-tight text-foreground">

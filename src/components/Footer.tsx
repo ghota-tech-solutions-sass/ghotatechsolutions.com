@@ -7,59 +7,28 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-background text-muted-foreground" aria-label="Pied de page">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
-            <p className="text-lg font-semibold tracking-tight text-foreground">Ghota Tech Solutions</p>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed">
-              Mickaël Villers, ingénieur DevOps et IA à Lyon. IA privée, IA sur Google Cloud,
-              plateforme et FinOps.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">Le site</h3>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li><Link href="/services" className={linkClass}>Offres</Link></li>
-              <li><Link href="/#labo" className={linkClass}>Labo IA</Link></li>
-              <li><Link href="/#realisations" className={linkClass}>Réalisations</Link></li>
-              <li><Link href="/a-propos" className={linkClass}>À propos</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">Mes produits</h3>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li><a href="https://whowillbreakit.com" target="_blank" rel="noopener noreferrer" className={linkClass}>Who Will Break It?</a></li>
-              <li><a href="https://roastmypic.ai" target="_blank" rel="noopener noreferrer" className={linkClass}>RoastMyPic</a></li>
-              <li><a href="https://lettrio.app" target="_blank" rel="noopener noreferrer" className={linkClass}>Lettrio</a></li>
-              <li><a href="https://flexwall.lol" target="_blank" rel="noopener noreferrer" className={linkClass}>Flexwall</a></li>
-              <li><a href="https://kittenclash.com" target="_blank" rel="noopener noreferrer" className={linkClass}>Kitten Clash Arena</a></li>
-              <li><a href="https://outilis.fr" target="_blank" rel="noopener noreferrer" className={linkClass}>Outilis</a></li>
-              <li><a href="https://outilio.fr" target="_blank" rel="noopener noreferrer" className={linkClass}>Outilio</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">Contact</h3>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className={`${linkClass} break-all`}>{CONTACT_EMAIL}</a>
-              </li>
-              <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>LinkedIn</a></li>
-              <li><a href={MALT_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>Malt</a></li>
-              <li><a href={X_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>X (Twitter)</a></li>
-            </ul>
-          </div>
+    <footer className="border-t border-border bg-background text-sm text-muted-foreground" aria-label="Pied de page">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-start md:justify-between lg:px-8">
+        <div className="max-w-xs">
+          <p className="font-semibold text-foreground">Ghota Tech Solutions</p>
+          <p className="mt-2 leading-relaxed">Mickaël Villers, ingénieur DevOps et IA à Lyon.</p>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {currentYear} Ghota Tech Solutions, EURL, Lyon.</p>
-          <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link href="/mentions-legales" className={linkClass}>Mentions légales</Link>
-            <Link href="/politique-confidentialite" className={linkClass}>Confidentialité</Link>
-          </div>
+        <nav className="grid grid-cols-2 gap-x-12 gap-y-3 sm:grid-cols-3 sm:gap-x-16" aria-label="Liens du pied de page">
+          <Link href="/#projets" className={linkClass}>Projets</Link>
+          <Link href="/services" className={linkClass}>Offres</Link>
+          <Link href="/a-propos" className={linkClass}>À propos</Link>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>LinkedIn</a>
+          <a href={X_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>X</a>
+          <a href={MALT_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>Malt</a>
+        </nav>
+      </div>
+
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 border-t border-border px-4 py-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <p>&copy; {currentYear} Ghota Tech Solutions, EURL, Lyon. <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>{CONTACT_EMAIL}</a></p>
+        <div className="flex gap-5">
+          <Link href="/mentions-legales" className={linkClass}>Mentions légales</Link>
+          <Link href="/politique-confidentialite" className={linkClass}>Confidentialité</Link>
         </div>
       </div>
     </footer>

@@ -44,7 +44,7 @@ export default function AboutPage() {
       <Navigation />
 
       <main id="contenu" className="pt-16">
-        <header className="grain relative overflow-hidden border-b border-border">
+        <header className="relative border-b border-border">
           <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1.4fr_1fr] md:py-28 lg:px-8">
             <div>
               <p className="text-sm font-medium text-primary">À propos</p>
@@ -110,7 +110,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-12 grid gap-10 md:grid-cols-3">
               {principles.map((p) => (
-                <div key={p.title} className="border-t-2 border-primary/60 pt-5">
+                <div key={p.title} className="border-t-2 border-foreground pt-5">
                   <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
                 </div>
@@ -119,7 +119,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="border-b border-border bg-muted/30" aria-labelledby="parcours-title">
+        <section className="border-b border-border bg-card" aria-labelledby="parcours-title">
           <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1fr_2fr] lg:px-8">
             <h2 id="parcours-title" className="text-3xl font-semibold tracking-tight text-foreground">
               Parcours

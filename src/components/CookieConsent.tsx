@@ -87,10 +87,10 @@ export default function CookieConsent() {
                     className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
                 >
                     <div className="max-w-7xl mx-auto">
-                        <div className="glass border border-white/10 rounded-2xl p-6 shadow-2xl backdrop-blur-xl bg-slate-950/90 md:flex md:items-center md:justify-between gap-6">
+                        <div className="bg-card border shadow-sm border border-border rounded-2xl p-6 shadow-lg backdrop-blur-xl bg-card/95 md:flex md:items-center md:justify-between gap-6">
                             <div className="mb-4 md:mb-0">
-                                <h3 className="text-lg font-semibold text-white mb-2">Nous respectons votre vie privée</h3>
-                                <p className="text-gray-300 text-sm leading-relaxed">
+                                <h3 className="text-lg font-semibold text-foreground mb-2">Nous respectons votre vie privée</h3>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
                                     Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic.
                                     En cliquant sur &quot;Accepter&quot;, vous consentez à notre utilisation des cookies.
                                     Consultez notre <a href="/politique-confidentialite" className="text-primary underline hover:brightness-110">politique de confidentialité</a> pour en savoir plus.
@@ -99,7 +99,7 @@ export default function CookieConsent() {
                             <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
                                 <button
                                     onClick={() => updateConsent(false)}
-                                    className="min-h-11 px-6 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors border border-white/10"
+                                    className="min-h-11 px-6 py-2.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors border border-border"
                                 >
                                     Refuser
                                 </button>
