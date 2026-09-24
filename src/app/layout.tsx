@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: "Ghota Tech Solutions | IA privée, IA sur GCP et DevOps à Lyon",
     template: "%s | Ghota Tech Solutions"
   },
-  description: "Mickaël Villers, ingénieur DevOps et IA à Lyon. Je déploie des LLM privés sur votre infra, je mets vos apps IA en production sur Google Cloud et j'optimise votre plateforme. 9 ans d'expérience (HomeServe, M6).",
+  description: "Mickaël Villers, ingénieur DevOps et IA à Lyon. Je déploie des LLM privés sur votre infra, je mets vos apps IA en production sur Google Cloud et je réduis votre facture cloud (FinOps). 9 ans d'expérience (HomeServe, M6).",
   keywords: [
     "IA privée",
     "LLM local",

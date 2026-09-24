@@ -72,7 +72,7 @@ export default function Home() {
                 Je mets l’IA en production, chez vous.
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                LLM privés sur votre infrastructure, applications IA sur Google Cloud, et une infra cloud qui coûte moins.
+                LLM privés sur votre infrastructure, applications IA sur Google Cloud, et FinOps pour une facture cloud plus légère.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
                 <a
