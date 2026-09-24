@@ -58,12 +58,13 @@ export const offers: Offer[] = [
     kicker: 'Plateforme & FinOps',
     title: 'Une infra cloud qui coûte moins et casse moins',
     pitch:
-      'Neuf ans de DevOps sur de gros volumes : streaming chez M6, plateforme chez HomeServe. Je reprends vos pipelines, votre Kubernetes et votre facture cloud.',
+      'Neuf ans de DevOps sur de gros volumes : streaming chez M6, plateforme chez HomeServe. Je reprends vos pipelines, votre Kubernetes et votre facture cloud, et j’épaule vos équipes dev et data au quotidien.',
     forWho: 'Équipes tech sur GCP ou AWS qui veulent aller plus vite en dépensant moins.',
     deliverables: [
       'Audit FinOps de la facture cloud et plan de réduction chiffré',
       'Migration CI/CD (GitLab, Jenkins → GitHub Actions)',
       'Kubernetes (GKE, EKS), Terraform, observabilité',
+      'Accompagnement des équipes dev et data : incidents, questions, déblocages',
       'Mission en régie ou au forfait',
     ],
     proof: 'Chez HomeServe : démarche FinOps qui économise plusieurs milliers d’euros par mois sur la facture cloud, et 100+ dépôts migrés de GitLab vers GitHub.',
@@ -159,13 +160,13 @@ export const career: Job[] = [
     role: 'Ingénieur DevOps (freelance)',
     company: 'HomeServe France',
     period: 'depuis 2023',
-    text: 'Équipe Platform : CI/CD, infra cloud, FinOps (plusieurs milliers d’euros économisés par mois), migration de 100+ dépôts GitLab vers GitHub, Keycloak, sécurité.',
+    text: 'Équipe Platform, point d’appui de toutes les équipes dev et data (incidents, questions, déblocages) : CI/CD, infra cloud, FinOps (plusieurs milliers d’euros économisés par mois), migration de 100+ dépôts GitLab vers GitHub, Keycloak, sécurité.',
   },
   {
     role: 'DevOps Engineer',
     company: 'Bedrock Streaming (M6)',
     period: '2020-2023',
-    text: 'AWS et Kubernetes à l’échelle du streaming, migration Jenkins vers GitHub Actions, pré-scaling Kubernetes, réduction des coûts, tests de charge.',
+    text: 'Accompagnement de toutes les équipes dev et data sur leurs incidents et leurs questions. AWS et Kubernetes à l’échelle du streaming, migration Jenkins vers GitHub Actions, pré-scaling Kubernetes, réduction des coûts, tests de charge.',
   },
   {
     role: 'Missions freelance',

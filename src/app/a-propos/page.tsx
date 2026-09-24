@@ -33,6 +33,10 @@ const principles = [
     text: 'Je garde les résultats défavorables. Si un modèle rate 1 cas sur 5, vous le savez avant de le mettre devant vos clients.',
   },
   {
+    title: 'Être là quand ça coince',
+    text: 'Chez Bedrock comme chez HomeServe, je suis le point d’appui de toutes les équipes dev et data : incident en production, question d’archi, pipeline bloqué.',
+  },
+  {
     title: 'Laisser une équipe autonome',
     text: 'Tout est décrit en code (Terraform, CI/CD) et documenté. Vous pouvez reprendre la main sans moi.',
   },
@@ -108,7 +112,7 @@ export default function AboutPage() {
             <h2 id="principes-title" className="text-3xl font-semibold tracking-tight text-foreground">
               Ma façon de travailler
             </h2>
-            <div className="mt-12 grid gap-10 md:grid-cols-3">
+            <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
               {principles.map((p) => (
                 <div key={p.title} className="border-t-2 border-foreground pt-5">
                   <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
