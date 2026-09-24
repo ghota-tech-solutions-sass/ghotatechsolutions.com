@@ -19,7 +19,7 @@ const skills = [
   },
   {
     group: 'Code',
-    items: ['TypeScript, Node.js, Bun', 'Next.js, React', 'PHP, Symfony'],
+    items: ['TypeScript, Node.js, Bun', 'Go', 'Rust', 'Next.js, React', 'PHP, Symfony'],
   },
 ];
 

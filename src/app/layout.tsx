@@ -208,6 +208,8 @@ const jsonLd = {
         'GitLab CI',
         'Infrastructure as Code',
         'FinOps',
+        'Go',
+        'Rust',
       ],
     },
     {
