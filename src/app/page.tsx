@@ -19,16 +19,16 @@ const spans: Record<string, string> = {
 
 const labFacts = [
   {
-    value: '75 000 vues',
-    text: 'pour mon comparatif DFlash2 contre MTP sur Qwen 27B. La conclusion allait contre l’annonce du moment.',
+    value: '366 000 vues',
+    text: 'pour mon test de Darkbloom, qui promet 120 à 200 $ par mois à un Mac qui sert de l’IA. J’ai mesuré 4,11 $ en 24 h, soit environ 125 $ par mois : le bas de la fourchette.',
   },
   {
-    value: '1 journée',
-    text: 'pour livrer le site de réservation Los Arditos avec un modèle 100 % local, sans aucune API payante.',
+    value: '142 000 vues',
+    text: 'pour une journée à optimiser mon serveur LLM local pour le code agentique. Pour mon usage, MTP battait DFlash2, contrairement à ce que tout X annonçait.',
   },
   {
-    value: '6 outils',
-    text: 'd’IA branchés chaque jour sur un seul serveur d’inférence local, sur mon MacBook M5 Max.',
+    value: '5 100 abonnés',
+    text: 'sur X et 1,8 million d’impressions en trois mois, en publiant des mesures plutôt que des opinions.',
   },
 ];
 
@@ -171,7 +171,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="mt-12 inline-block font-medium text-foreground underline underline-offset-4 decoration-border hover:decoration-foreground"
             >
-              Mes benchs sont publiés sur X
+              Voir mes tests sur X
             </a>
           </div>
         </section>

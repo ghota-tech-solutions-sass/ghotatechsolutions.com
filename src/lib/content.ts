@@ -70,45 +70,6 @@ export const offers: Offer[] = [
   },
 ];
 
-export type Experiment = {
-  title: string;
-  claim: string;
-  figures: { value: string; label: string }[];
-  link?: { href: string; label: string };
-};
-
-export const experiments: Experiment[] = [
-  {
-    title: 'DFlash2 contre MTP, mesuré sur un MacBook M5 Max',
-    claim:
-      'Tout X parlait de DFlash2 pour accélérer Qwen 27B. Je l’ai mesuré sur ma machine : pour mon usage de code, MTP faisait mieux.',
-    figures: [
-      { value: '75 000', label: 'vues sur le thread' },
-      { value: '323', label: 'enregistrements' },
-    ],
-    link: { href: X_URL, label: 'Voir mes benchs sur X' },
-  },
-  {
-    title: 'Un site de réservation en une journée, 100 % en local',
-    claim:
-      'Design, réservation, calcul du prix, parcours GPX, back-office et déploiement sur Cloud Run, avec Qwen 3.8 Flash Next et opencode, sans aucune API cloud. Une fonctionnalité, un prompt.',
-    figures: [
-      { value: '1 jour', label: 'pour la V1' },
-      { value: '0 €', label: 'd’API' },
-    ],
-    link: { href: 'https://losarditos.com', label: 'losarditos.com' },
-  },
-  {
-    title: 'Ma stack IA locale, en production tous les jours',
-    claim:
-      'Un seul serveur d’inférence MLX sert six outils (agents de code, assistant, automatisations). Chaque modèle est gardé ou retiré sur mesure, jamais sur la fiche technique.',
-    figures: [
-      { value: '6', label: 'outils branchés' },
-      { value: '128 Go', label: 'de mémoire unifiée' },
-    ],
-  },
-];
-
 export type Project = {
   name: string;
   href: string;
