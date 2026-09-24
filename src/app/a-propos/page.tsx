@@ -72,7 +72,7 @@ export default function AboutPage() {
                 alt="Mickaël Villers"
                 width={640}
                 height={800}
-                className="aspect-square w-full object-cover object-[50%_70%]"
+                className="aspect-square w-full object-cover object-[50%_30%]"
               />
               <div className="p-6">
               <dl className="space-y-4 text-sm">
